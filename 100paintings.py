@@ -6,6 +6,7 @@ import csv
 from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor
 from reportlab.lib.units import inch, mm
+from reportlab.lib.pagesizes import landscape, A4
 
 paintingsdata = []
 
@@ -23,7 +24,9 @@ with open(file_to_open, 'r') as file:
         paintingsdata.append(row)
         count += 1
 print(count)
-c = canvas.Canvas("PDF/100paintings.pdf")
+width, height = A4
+c = canvas.Canvas("PDF/100paintings.pdf", (landscape(A4)))
 c.setFillColor(HexColor('#FECDE5'))
+c.drawString(10, 10, "Hello")
 c.save()
 key = input("Wait")
