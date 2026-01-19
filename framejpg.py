@@ -40,6 +40,11 @@ def add_frame(image_path, output_path, frame_width=50, frame_color=(139, 69, 19)
 
 # Example usage
 if __name__ == "__main__":
+    if sys.platform[0] == 'l':
+        path = '/home/jan/git/Paintings'
+    if sys.platform[0] == 'w':
+        path = "C:/Users/janbo/OneDrive/Documents/GitHub/Paintings"
+    os.chdir(path)
     # Change these paths to your own image and output location
     input_image = "Paintings/painting.jpg"  # Replace with your image file
     output_image = "PDF/framed_painting.jpg"
