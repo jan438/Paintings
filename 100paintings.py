@@ -3,6 +3,9 @@ import math
 import sys
 import os
 import csv
+from reportlab.pdfgen import canvas
+from reportlab.lib.colors import HexColor
+from reportlab.lib.units import inch, mm
 
 paintingsdata = []
 
@@ -20,4 +23,7 @@ with open(file_to_open, 'r') as file:
         paintingsdata.append(row)
         count += 1
 print(count)
+c = canvas.Canvas("PDF/100paintings.pdf")
+c.setFillColor(HexColor('#FECDE5'))
+c.save()
 key = input("Wait")
