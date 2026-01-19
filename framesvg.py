@@ -1,5 +1,13 @@
 import drawsvg as draw
 import math
+import sys
+import os
+
+if sys.platform[0] == 'l':
+    path = '/home/jan/git/Paintings'
+if sys.platform[0] == 'w':
+    path = "C:/Users/janbo/OneDrive/Documents/GitHub/Paintings"
+os.chdir(path)
 
 # Canvas size
 width, height = 500, 500
