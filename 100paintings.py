@@ -52,7 +52,7 @@ pageheight = A4[0]
 c = canvas.Canvas("PDF/100paintings.pdf", (landscape(A4)))
 c.setTitle("Famous Paintings")
 # Lineair gradient with the endpoint extending over the page.
-c.linearGradient(0, 0, pagewidth, pageheight, (red, yellow))
+c.linearGradient(0, 0, pagewidth, pageheight, (HexColor("#9b9bff"), HexColor("#704cff")))
 c.rect(0, 0, pagewidth, pageheight)
 for i in range(count):
     if i == 2:
