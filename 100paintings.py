@@ -49,13 +49,14 @@ with open(file_to_open, 'r') as file:
         count += 1
 pagewidth = A4[1]
 pageheight = A4[0]
+maxcount = 3
 c = canvas.Canvas("PDF/100paintings.pdf", (landscape(A4)))
 c.setTitle("Famous Paintings")
 # Lineair gradient with the endpoint extending over the page.
 c.linearGradient(0, 0, pagewidth, pageheight, (HexColor("#9b9bff"), HexColor("#704cff")))
 c.rect(0, 0, pagewidth, pageheight)
 for i in range(count):
-    if i == 2:
+    if i == maxcount:
         break
     input_image = "Paintings/" + paintingsdata[i][0] + ".jpg"
     if not os.path.exists(input_image):
@@ -73,7 +74,7 @@ for i in range(count):
         c.drawImage(painting, 0, 0, width = w, height = h, mask='auto')
         c.restoreState()
 for i in range(count):
-    if i == 2:
+    if i == maxcount:
         break
     x = float(paintingsdata[i][2])
     y = float(paintingsdata[i][3])
