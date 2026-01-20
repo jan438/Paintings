@@ -12,7 +12,8 @@ from reportlab.lib.utils import ImageReader
 
 paintingsdata = []
 
-def add_frame(image_path, output_path, frame_width=50, frame_color=(139, 69, 19)):
+def add_frame(image_path, frame_width=50, frame_color=(139, 69, 19)):
+    framed_img = None
     try:
         img = Image.open(image_path).convert("RGB")
         framed_img = ImageOps.expand(img, border=frame_width, fill=frame_color)
@@ -25,8 +26,7 @@ def add_frame(image_path, output_path, frame_width=50, frame_color=(139, 69, 19)
                  framed_img.height - frame_width + i - 1],
                 outline=(218, 165, 32)  # Golden color
             )
-        framed_img.save(output_path)
-        print(f"Framed image saved to: {output_path}")
+        return framed_img
     except FileNotFoundError:
         print("Error: The specified image file was not found.")
     except Exception as e:
@@ -53,7 +53,6 @@ for i in range(count):
     if i == 1:
         break
     input_image = "Paintings/" + paintingsdata[i][0] + ".jpg"
-    output_image = "PDF/" + paintingsdata[i][0] + ".jpg"
     if not os.path.exists(input_image):
         print(f"Input image '{input_image}' not found. Please place it in the script folder.")
     else:
@@ -62,8 +61,8 @@ for i in range(count):
         # canvas.scale(1,-1)
         # canvas.drawImage(img_path, 0, 0, width=-width, height=-height, mask='auto')
         # canvas.restoreState()
-        add_frame(input_image, output_image, frame_width=60, frame_color=(101, 67, 33))
-        painting = ImageReader(output_image)
+        framed_image = add_frame(input_image, frame_width=60, frame_color=(101, 67, 33))
+        painting = ImageReader(framed_image)
         c.drawImage(painting, 10, 10, width = 96, height = 143, mask='auto')
         c.drawString(10, 200 - i * 30, paintingsdata[i][0])
     c.save()
