@@ -44,7 +44,7 @@ with open(file_to_open, 'r') as file:
     count = 0
     for row in csvreader:
         paintingsdata.append(row)
-        print(count, paintingsdata[count][3])
+        print(count, paintingsdata[count][5])
         count += 1
 width, height = A4
 c = canvas.Canvas("PDF/100paintings.pdf", (landscape(A4)))
