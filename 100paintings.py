@@ -9,6 +9,7 @@ from reportlab.lib.colors import HexColor
 from reportlab.lib.units import inch, mm
 from reportlab.lib.pagesizes import landscape, A4
 from reportlab.lib.utils import ImageReader
+from reportlab.lib.colors import red, yellow, green
 
 paintingsdata = []
 
@@ -49,7 +50,9 @@ with open(file_to_open, 'r') as file:
 width, height = A4
 c = canvas.Canvas("PDF/100paintings.pdf", (landscape(A4)))
 c.setTitle("Famous Paintings")
-c.setFillColor(HexColor('#FECDE5'))
+# Radial gradient with the endpoint extending over the page.
+c.radialGradient(105*mm, 200*mm, 60*mm, (red, yellow))
+c.circle(105*mm, 200*mm, 60*mm)
 for i in range(count):
     if i == 2:
         break
