@@ -49,11 +49,11 @@ width, height = A4
 c = canvas.Canvas("PDF/100paintings.pdf", (landscape(A4)))
 c.setFillColor(HexColor('#FECDE5'))
 for i in range(count):
-    if i == 3:
+    if i == 1:
         break
+    input_image = "Paintings/" + paintingsdata[i][0] + ".jpg"
     c.drawString(10, 200 - i * 30, paintingsdata[i][0])
-input_image = "Paintings/painting.jpg"
-output_image = "PDF/framed_painting.jpg"
+output_image = "PDF/" + paintingsdata[i][0] + ".jpg"
 if not os.path.exists(input_image):
     print(f"Input image '{input_image}' not found. Please place it in the script folder.")
 else:
