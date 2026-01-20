@@ -51,7 +51,7 @@ c = canvas.Canvas("PDF/100paintings.pdf", (landscape(A4)))
 c.setTitle("Famous Paintings")
 c.setFillColor(HexColor('#FECDE5'))
 for i in range(count):
-    if i == 1:
+    if i == 2:
         break
     input_image = "Paintings/" + paintingsdata[i][0] + ".jpg"
     if not os.path.exists(input_image):
@@ -70,5 +70,5 @@ for i in range(count):
         h = float(paintingsdata[i][5])
         c.drawImage(painting, x, y, width = w, height = h, mask='auto')
         c.drawString(10, 200 - i * 30, paintingsdata[i][0])
-    c.save()
+c.save()
 key = input("Wait")
