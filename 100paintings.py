@@ -73,6 +73,6 @@ for i in range(count):
         w = float(paintingsdata[i][4])
         h = float(paintingsdata[i][5])
         c.drawImage(painting, x, y, width = w, height = h, mask='auto')
-        c.drawString(10, 200 - i * 30, paintingsdata[i][0])
+        c.drawString(x + 5.0, y - 20.0, paintingsdata[i][0])
 c.save()
 key = input("Wait")
