@@ -47,12 +47,13 @@ with open(file_to_open, 'r') as file:
         paintingsdata.append(row)
         print(count, paintingsdata[count][5])
         count += 1
-width, height = A4
+pagewidth = A4[1]
+pageheight = A4[0]
 c = canvas.Canvas("PDF/100paintings.pdf", (landscape(A4)))
 c.setTitle("Famous Paintings")
-# Radial gradient with the endpoint extending over the page.
-c.radialGradient(105*mm, 200*mm, 60*mm, (red, yellow))
-c.circle(105*mm, 200*mm, 60*mm)
+# Lineair gradient with the endpoint extending over the page.
+c.linearGradient(0, 0, pagewidth, pageheight, (red, yellow))
+c.rect(0, 0, pagewidth, pageheight)
 for i in range(count):
     if i == 2:
         break
