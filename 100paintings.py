@@ -57,9 +57,14 @@ for i in range(count):
     if not os.path.exists(input_image):
         print(f"Input image '{input_image}' not found. Please place it in the script folder.")
     else:
+        # canvas.saveState()
+        # canvas.translate(x, y)
+        # canvas.scale(1,-1)
+        # canvas.drawImage(img_path, 0, 0, width=-width, height=-height, mask='auto')
+        # canvas.restoreState()
         add_frame(input_image, output_image, frame_width=60, frame_color=(101, 67, 33))
-        logo = ImageReader(output_image)
-        c.drawImage(logo, 10, 10, width = 96, height = 143, mask='auto')
+        painting = ImageReader(output_image)
+        c.drawImage(painting, 10, 10, width = 96, height = 143, mask='auto')
         c.drawString(10, 200 - i * 30, paintingsdata[i][0])
     c.save()
 key = input("Wait")
