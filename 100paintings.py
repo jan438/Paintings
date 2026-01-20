@@ -27,6 +27,9 @@ print(count)
 width, height = A4
 c = canvas.Canvas("PDF/100paintings.pdf", (landscape(A4)))
 c.setFillColor(HexColor('#FECDE5'))
-c.drawString(10, 10, "Hello")
+for i in range(count):
+    if i == 3:
+        break
+    c.drawString(10, 200 - i * 30, paintingsdata[i][0])
 c.save()
 key = input("Wait")
