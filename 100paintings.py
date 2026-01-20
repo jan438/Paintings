@@ -59,7 +59,7 @@ for i in range(count):
     else:
         add_frame(input_image, output_image, frame_width=60, frame_color=(101, 67, 33))
         logo = ImageReader(output_image)
-        c.drawImage(logo, 10, 10, mask='auto')
+        c.drawImage(logo, 10, 10, width = 100, height = 200, mask='auto')
         c.drawString(10, 200 - i * 30, paintingsdata[i][0])
     c.save()
 key = input("Wait")
