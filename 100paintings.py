@@ -48,6 +48,7 @@ with open(file_to_open, 'r') as file:
         count += 1
 width, height = A4
 c = canvas.Canvas("PDF/100paintings.pdf", (landscape(A4)))
+c.setTitle("Famous Paintings")
 c.setFillColor(HexColor('#FECDE5'))
 for i in range(count):
     if i == 1:
