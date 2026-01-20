@@ -52,11 +52,11 @@ for i in range(count):
     if i == 1:
         break
     input_image = "Paintings/" + paintingsdata[i][0] + ".jpg"
+    output_image = "PDF/" + paintingsdata[i][0] + ".jpg"
+    if not os.path.exists(input_image):
+        print(f"Input image '{input_image}' not found. Please place it in the script folder.")
+    else:
+        add_frame(input_image, output_image, frame_width=60, frame_color=(101, 67, 33))
     c.drawString(10, 200 - i * 30, paintingsdata[i][0])
-output_image = "PDF/" + paintingsdata[i][0] + ".jpg"
-if not os.path.exists(input_image):
-    print(f"Input image '{input_image}' not found. Please place it in the script folder.")
-else:
-    add_frame(input_image, output_image, frame_width=60, frame_color=(101, 67, 33))
 c.save()
 key = input("Wait")
