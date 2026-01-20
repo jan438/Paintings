@@ -3,12 +3,33 @@ import math
 import sys
 import os
 import csv
+from PIL import Image, ImageOps, ImageDraw
 from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor
 from reportlab.lib.units import inch, mm
 from reportlab.lib.pagesizes import landscape, A4
 
 paintingsdata = []
+
+def add_frame(image_path, output_path, frame_width=50, frame_color=(139, 69, 19)):
+    try:
+        img = Image.open(image_path).convert("RGB")
+        framed_img = ImageOps.expand(img, border=frame_width, fill=frame_color)
+        draw = ImageDraw.Draw(framed_img)
+        inner_margin = 5
+        for i in range(inner_margin):
+            draw.rectangle(
+                [frame_width - i, frame_width - i,
+                 framed_img.width - frame_width + i - 1,
+                 framed_img.height - frame_width + i - 1],
+                outline=(218, 165, 32)  # Golden color
+            )
+        framed_img.save(output_path)
+        print(f"Framed image saved to: {output_path}")
+    except FileNotFoundError:
+        print("Error: The specified image file was not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 if sys.platform[0] == 'l':
     path = '/home/jan/git/Paintings'
@@ -31,5 +52,11 @@ for i in range(count):
     if i == 3:
         break
     c.drawString(10, 200 - i * 30, paintingsdata[i][0])
+input_image = "Paintings/painting.jpg"
+output_image = "PDF/framed_painting.jpg"
+if not os.path.exists(input_image):
+    print(f"Input image '{input_image}' not found. Please place it in the script folder.")
+else:
+    add_frame(input_image, output_image, frame_width=60, frame_color=(101, 67, 33))
 c.save()
 key = input("Wait")
