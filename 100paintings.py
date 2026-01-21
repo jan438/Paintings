@@ -51,34 +51,31 @@ pagewidthportrait = A4[0]
 pageheightportrait = A4[1] 
 pagewidthlandscape = A4[1]
 pageheightlandscape = A4[0]
-maxcount = 1
-for i in range(count):
-    if i == maxcount:
-        break
-    x = float(paintingsdata[i][2])
-    y = float(paintingsdata[i][3])
-    w = float(paintingsdata[i][4])
-    h = float(paintingsdata[i][5])
-    if h >= w:
-        c = canvas.Canvas("PDF/100paintings.pdf", (portrait(A4)))
-        c.linearGradient(0, 0, pagewidthportrait, pageheightportrait, (HexColor("#3f5d82"), HexColor("#4f73a1")))
-        c.rect(0, 0, pagewidthportrait, pageheightportrait)
-    else:
-        c = canvas.Canvas("PDF/100paintings.pdf", (landscape(A4)))
-        c.linearGradient(0, 0, pagewidthlandscape, pageheightlandscape, (HexColor("#3f5d82"), HexColor("#4f73a1")))
-        c.rect(0, 0, pagewidthlandscape, pageheightlandscape)
-    c.setTitle(paintingsdata[i][0])
-    input_image = "Paintings/" + paintingsdata[i][0] + ".jpg"
-    if not os.path.exists(input_image):
-        print(f"Input image '{input_image}' not found. Please place it in the script folder.")
-    else:
-        framed_image = add_frame(input_image, frame_width=60, frame_color=(101, 67, 33))
-        painting = ImageReader(framed_image)
-        c.saveState()
-        c.translate(x, y)
-        c.scale(1.5, 1.5)
-        c.drawImage(painting, 0, 0, width = w, height = h, mask='auto')
-        c.restoreState()
-        c.drawString(x + 5.0, y - 20.0, paintingsdata[i][0])
+index = 0
+x = float(paintingsdata[index][2])
+y = float(paintingsdata[index][3])
+w = float(paintingsdata[index][4])
+h = float(paintingsdata[index][5])
+if h >= w:
+    c = canvas.Canvas("PDF/100paintings.pdf", (portrait(A4)))
+    c.linearGradient(0, 0, pagewidthportrait, pageheightportrait, (HexColor("#3f5d82"), HexColor("#4f73a1")))
+    c.rect(0, 0, pagewidthportrait, pageheightportrait)
+else:
+    c = canvas.Canvas("PDF/100paintings.pdf", (landscape(A4)))
+    c.linearGradient(0, 0, pagewidthlandscape, pageheightlandscape, (HexColor("#3f5d82"), HexColor("#4f73a1")))
+    c.rect(0, 0, pagewidthlandscape, pageheightlandscape)
+c.setTitle(paintingsdata[index][0])
+input_image = "Paintings/" + paintingsdata[index][0] + ".jpg"
+if not os.path.exists(input_image):
+    print(f"Input image '{input_image}' not found. Please place it in the script folder.")
+else:
+    framed_image = add_frame(input_image, frame_width=60, frame_color=(101, 67, 33))
+    painting = ImageReader(framed_image)
+    c.saveState()
+    c.translate(x, y)
+    c.scale(1.5, 1.5)
+    c.drawImage(painting, 0, 0, width = w, height = h, mask='auto')
+    c.restoreState()
+    c.drawString(x + 5.0, y - 20.0, paintingsdata[index][0])
 c.save()
 key = input("Wait")
