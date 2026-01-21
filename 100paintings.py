@@ -51,17 +51,18 @@ pagewidthportrait = A4[0]
 pageheightportrait = A4[1] 
 pagewidthlandscape = A4[1]
 pageheightlandscape = A4[0]
-index = 0
+index = 1
+strindex = "{:03d}".format(index)
 x = float(paintingsdata[index][2])
 y = float(paintingsdata[index][3])
 w = float(paintingsdata[index][4])
 h = float(paintingsdata[index][5])
 if h >= w:
-    c = canvas.Canvas("PDF/100paintings.pdf", (portrait(A4)))
+    c = canvas.Canvas("PDF/100paintings" + strindex + ".pdf", (portrait(A4)))
     c.linearGradient(0, 0, pagewidthportrait, pageheightportrait, (HexColor("#3f5d82"), HexColor("#4f73a1")))
     c.rect(0, 0, pagewidthportrait, pageheightportrait)
 else:
-    c = canvas.Canvas("PDF/100paintings.pdf", (landscape(A4)))
+    c = canvas.Canvas("PDF/100paintings" + strindex + ".pdf", (landscape(A4)))
     c.linearGradient(0, 0, pagewidthlandscape, pageheightlandscape, (HexColor("#3f5d82"), HexColor("#4f73a1")))
     c.rect(0, 0, pagewidthlandscape, pageheightlandscape)
 c.setTitle(paintingsdata[index][0])
