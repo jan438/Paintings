@@ -49,11 +49,11 @@ with open(file_to_open, 'r') as file:
         count += 1
 pagewidth = A4[1]
 pageheight = A4[0]
-maxcount = 3
+maxcount = 1
 c = canvas.Canvas("PDF/100paintings.pdf", (landscape(A4)))
 c.setTitle("Famous Paintings")
 # Lineair gradient with the endpoint extending over the page.
-c.linearGradient(0, 0, pagewidth, pageheight, (HexColor("#9b9bff"), HexColor("#704cff")))
+c.linearGradient(0, 0, pagewidth, pageheight, (HexColor("#3f5d82"), HexColor("#4f73a1")))
 c.rect(0, 0, pagewidth, pageheight)
 for i in range(count):
     if i == maxcount:
