@@ -67,7 +67,7 @@ for i in range(count):
         c = canvas.Canvas("PDF/100paintings.pdf", (landscape(A4)))
         c.linearGradient(0, 0, pagewidthlandscape, pageheightlandscape, (HexColor("#3f5d82"), HexColor("#4f73a1")))
         c.rect(0, 0, pagewidthlandscape, pageheightlandscape)
-    c.setTitle("Famous Paintings")
+    c.setTitle(paintingsdata[i][0])
     input_image = "Paintings/" + paintingsdata[i][0] + ".jpg"
     if not os.path.exists(input_image):
         print(f"Input image '{input_image}' not found. Please place it in the script folder.")
