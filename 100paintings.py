@@ -81,5 +81,6 @@ else:
     painter = "Painters/" + paintingsdata[index][1] + ".jpg"
     c.drawImage(painter, x - 20, y - 150, width = 77, height = 100, mask='auto')
     c.drawString(x + 5.0, y - 20.0, paintingsdata[index][0])
+    c.drawString(x - 20, y - 170.0, paintingsdata[index][1])
 c.save()
 key = input("Wait")
