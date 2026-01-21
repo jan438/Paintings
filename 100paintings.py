@@ -53,6 +53,10 @@ maxcount = 1
 for i in range(count):
     if i == maxcount:
         break
+    x = float(paintingsdata[i][2])
+    y = float(paintingsdata[i][3])
+    w = float(paintingsdata[i][4])
+    h = float(paintingsdata[i][5])
     c = canvas.Canvas("PDF/100paintings.pdf", (landscape(A4)))
     c.setTitle("Famous Paintings")
     c.linearGradient(0, 0, pagewidth, pageheight, (HexColor("#3f5d82"), HexColor("#4f73a1")))
@@ -63,20 +67,11 @@ for i in range(count):
     else:
         framed_image = add_frame(input_image, frame_width=60, frame_color=(101, 67, 33))
         painting = ImageReader(framed_image)
-        x = float(paintingsdata[i][2])
-        y = float(paintingsdata[i][3])
-        w = float(paintingsdata[i][4])
-        h = float(paintingsdata[i][5])
         c.saveState()
         c.translate(x, y)
         c.scale(1.5, 1.5)
         c.drawImage(painting, 0, 0, width = w, height = h, mask='auto')
         c.restoreState()
-for i in range(count):
-    if i == maxcount:
-        break
-    x = float(paintingsdata[i][2])
-    y = float(paintingsdata[i][3])
-    c.drawString(x + 5.0, y - 20.0, paintingsdata[i][0])
+        c.drawString(x + 5.0, y - 20.0, paintingsdata[i][0])
 c.save()
 key = input("Wait")
