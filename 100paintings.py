@@ -7,7 +7,7 @@ from PIL import Image, ImageOps, ImageDraw
 from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor
 from reportlab.lib.units import inch, mm
-from reportlab.lib.pagesizes import landscape, A4
+from reportlab.lib.pagesizes import portrait, landscape, A4
 from reportlab.lib.utils import ImageReader
 from reportlab.lib.colors import red, yellow, green
 
@@ -47,8 +47,10 @@ with open(file_to_open, 'r') as file:
         paintingsdata.append(row)
         print(count, paintingsdata[count][5])
         count += 1
-pagewidth = A4[1]
-pageheight = A4[0]
+pagewidthportrait = A4[0]
+pageheightportrait = A4[1] 
+pagewidthlandscape = A4[1]
+pageheightlandscape = A4[0]
 maxcount = 1
 for i in range(count):
     if i == maxcount:
@@ -57,10 +59,15 @@ for i in range(count):
     y = float(paintingsdata[i][3])
     w = float(paintingsdata[i][4])
     h = float(paintingsdata[i][5])
-    c = canvas.Canvas("PDF/100paintings.pdf", (landscape(A4)))
+    if h >= w:
+        c = canvas.Canvas("PDF/100paintings.pdf", (portrait(A4)))
+        c.linearGradient(0, 0, pagewidthportrait, pageheightportrait, (HexColor("#3f5d82"), HexColor("#4f73a1")))
+        c.rect(0, 0, pagewidthportrait, pageheightportrait)
+    else:
+        c = canvas.Canvas("PDF/100paintings.pdf", (landscape(A4)))
+        c.linearGradient(0, 0, pagewidthlandscape, pageheightlandscape, (HexColor("#3f5d82"), HexColor("#4f73a1")))
+        c.rect(0, 0, pagewidthlandscape, pageheightlandscape)
     c.setTitle("Famous Paintings")
-    c.linearGradient(0, 0, pagewidth, pageheight, (HexColor("#3f5d82"), HexColor("#4f73a1")))
-    c.rect(0, 0, pagewidth, pageheight)
     input_image = "Paintings/" + paintingsdata[i][0] + ".jpg"
     if not os.path.exists(input_image):
         print(f"Input image '{input_image}' not found. Please place it in the script folder.")
