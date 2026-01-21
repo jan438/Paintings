@@ -10,8 +10,21 @@ from reportlab.lib.units import inch, mm
 from reportlab.lib.pagesizes import portrait, landscape, A4
 from reportlab.lib.utils import ImageReader
 from reportlab.lib.colors import red, yellow, green
+from reportlab.graphics import renderPDF
+from svglib.svglib import svg2rlg, load_svg_file, SvgRenderer
 
 paintingsdata = []
+
+def scaleSVG(svgfile, scaling_factor):
+    svg_root = load_svg_file(svgfile)
+    svgRenderer = SvgRenderer(svgfile)
+    drawing = svgRenderer.render(svg_root)
+    scaling_x = scaling_factor
+    scaling_y = scaling_factor
+    drawing.width = drawing.minWidth() * scaling_x
+    drawing.height = drawing.height * scaling_y
+    drawing.scale(scaling_x, scaling_y)
+    return drawing
 
 def add_frame(image_path, frame_width=50, frame_color=(139, 69, 19)):
     framed_img = None
@@ -82,5 +95,6 @@ else:
     c.drawImage(painter, x - 20, y - 150, width = 77, height = 100, mask='auto')
     c.drawString(x + 5.0, y - 20.0, paintingsdata[index][0])
     c.drawString(x - 20, y - 170.0, paintingsdata[index][1])
+    renderPDF.draw(scaleSVG("SVG/europe.svg", 1.0), c, 0, 0)
 c.save()
 key = input("Wait")
