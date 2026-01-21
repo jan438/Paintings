@@ -95,6 +95,6 @@ else:
     c.drawImage(painter, x - 20, y - 150, width = 77, height = 100, mask='auto')
     c.drawString(x + 5.0, y - 20.0, paintingsdata[index][0])
     c.drawString(x - 20, y - 170.0, paintingsdata[index][1])
-    renderPDF.draw(scaleSVG("SVG/europe.svg", 0.3), c, 0, 0)
+    renderPDF.draw(scaleSVG("SVG/europe.svg", 0.25), c, x + 40, y - 190)
 c.save()
 key = input("Wait")
