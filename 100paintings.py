@@ -45,7 +45,7 @@ with open(file_to_open, 'r') as file:
     count = 0
     for row in csvreader:
         paintingsdata.append(row)
-        print(count, paintingsdata[count][6])
+        #print(count, paintingsdata[count][6])
         count += 1
 pagewidthportrait = A4[0]
 pageheightportrait = A4[1] 
@@ -57,6 +57,7 @@ x = float(paintingsdata[index][2])
 y = float(paintingsdata[index][3])
 w = float(paintingsdata[index][4])
 h = float(paintingsdata[index][5])
+sc = float(paintingsdata[index][6])
 if h >= w:
     c = canvas.Canvas("PDF/100paintings" + strindex + ".pdf", (portrait(A4)))
     c.linearGradient(0, 0, pagewidthportrait, pageheightportrait, (HexColor("#3f5d82"), HexColor("#4f73a1")))
@@ -74,7 +75,7 @@ else:
     painting = ImageReader(framed_image)
     c.saveState()
     c.translate(x, y)
-    c.scale(1.5, 1.5)
+    c.scale(sc, sc)
     c.drawImage(painting, 0, 0, width = w, height = h, mask='auto')
     c.restoreState()
     c.drawString(x + 5.0, y - 20.0, paintingsdata[index][0])
