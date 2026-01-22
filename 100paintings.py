@@ -76,7 +76,7 @@ with open(file_to_open, 'r') as file:
     count = 0
     for row in csvreader:
         paintingsdata.append(row)
-        print(count, paintingsdata[count][8])
+        print(count, paintingsdata[count][9])
         count += 1
 pagewidthportrait = A4[0]
 pageheightportrait = A4[1] 
