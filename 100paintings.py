@@ -12,8 +12,11 @@ from reportlab.lib.utils import ImageReader
 from reportlab.lib.colors import red, yellow, green
 from reportlab.graphics import renderPDF
 from svglib.svglib import svg2rlg, load_svg_file, SvgRenderer
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont 
 
 paintingsdata = []
+paintingfont = "LiberationSerif"
 
 def scaleSVG(svgfile, scaling_factor):
     svg_root = load_svg_file(svgfile)
@@ -51,7 +54,22 @@ if sys.platform[0] == 'l':
 if sys.platform[0] == 'w':
     path = "C:/Users/janbo/OneDrive/Documents/GitHub/Paintings"
 os.chdir(path)
-
+pdfmetrics.registerFont(TTFont('Ubuntu', 'Ubuntu-Regular.ttf'))
+pdfmetrics.registerFont(TTFont('UbuntuBold', 'Ubuntu-Bold.ttf'))
+pdfmetrics.registerFont(TTFont('UbuntuItalic', 'Ubuntu-Italic.ttf'))
+pdfmetrics.registerFont(TTFont('UbuntuBoldItalic', 'Ubuntu-BoldItalic.ttf'))
+pdfmetrics.registerFont(TTFont('LiberationSerif', 'LiberationSerif-Regular.ttf'))
+pdfmetrics.registerFont(TTFont('LiberationSerifBold', 'LiberationSerif-Bold.ttf'))
+pdfmetrics.registerFont(TTFont('LiberationSerifItalic', 'LiberationSerif-Italic.ttf'))
+pdfmetrics.registerFont(TTFont('LiberationSerifBoldItalic', 'LiberationSerif-BoldItalic.ttf'))
+pdfmetrics.registerFont(TTFont('DancingScript', 'DancingScript-Regular.ttf'))
+pdfmetrics.registerFont(TTFont('DancingScriptBold', 'DancingScript-Bold.ttf'))
+pdfmetrics.registerFont(TTFont('DancingScriptItalic', 'DancingScript-Regular.ttf'))
+pdfmetrics.registerFont(TTFont('DancingScriptBoldItalic', 'DancingScript-Bold.ttf'))
+pdfmetrics.registerFont(TTFont('CormorantGaramond', 'CormorantGaramond-Regular.ttf'))
+pdfmetrics.registerFont(TTFont('CormorantGaramondBold', 'CormorantGaramond-Bold.ttf'))
+pdfmetrics.registerFont(TTFont('CormorantGaramondItalic', 'CormorantGaramond-Italic.ttf'))
+pdfmetrics.registerFont(TTFont('CormorantGaramondBoldItalic', 'CormorantGaramond-BoldItalic.ttf'))
 file_to_open = "Data/100paintings.csv"
 with open(file_to_open, 'r') as file:
     csvreader = csv.reader(file, delimiter = ';')
@@ -64,7 +82,7 @@ pagewidthportrait = A4[0]
 pageheightportrait = A4[1] 
 pagewidthlandscape = A4[1]
 pageheightlandscape = A4[0]
-index = 2
+index = 0
 strindex = "{:03d}".format(index)
 x = float(paintingsdata[index][2])
 y = float(paintingsdata[index][3])
@@ -94,6 +112,7 @@ else:
     painter = "Painters/" + paintingsdata[index][1] + ".jpg"
     c.drawImage(painter, x - 20, y - 150, width = 77, height = 100, mask='auto')
     c.setFillColor(HexColor('#FFFFFF'))
+    c.setFont(paintingfont, 20)
     c.drawString(x + 5.0, y - 20.0, paintingsdata[index][0])
     c.drawString(x - 20, y - 170.0, paintingsdata[index][1])
     c.drawString(x + 200, y - 170.0, paintingsdata[index][7])
