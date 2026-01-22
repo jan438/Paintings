@@ -29,10 +29,10 @@ def processreport():
     merger.write(output)
     merger.close()
     output.close()
-    for i in range(3):
-        strindex = "{:03d}".format(i)
-        if os.path.isfile("PDF/100paintings" + str(strindex) + ".pdf"):
-            os.remove("PDF/100paintings" + str(strindex) + ".pdf")
+#    for i in range(3):
+#        strindex = "{:03d}".format(i)
+#        if os.path.isfile("PDF/100paintings" + str(strindex) + ".pdf"):
+#            os.remove("PDF/100paintings" + str(strindex) + ".pdf")
 
 if sys.platform[0] == 'l':
     path = '/home/jan/git/Paintings'
