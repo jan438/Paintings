@@ -96,5 +96,6 @@ else:
     c.setFillColor(HexColor('#FFFFFF'))
     c.drawString(x + 5.0, y - 20.0, paintingsdata[index][0])
     c.drawString(x - 20, y - 170.0, paintingsdata[index][1])
+    c.drawString(x + 30, y - 170.0, paintingsdata[index][7])
 c.save()
 key = input("Wait")
