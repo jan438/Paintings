@@ -17,9 +17,10 @@ from pypdf import PdfReader, PdfWriter
 def processreport():
     merger = PdfWriter()
     for i in range(3):
-        print(i)
-        if os.path.isfile("PDF/100paintings" + str(i) + ".pdf"):
-            inputpdf = open("PDF/100paintings" + str(i) + ".pdf", "rb")
+        strindex = "{:03d}".format(i)
+        print(strindex)
+        if os.path.isfile("PDF/100paintings" + str(strindex) + ".pdf"):
+            inputpdf = open("PDF/100paintings" + str(strindex) + ".pdf", "rb")
             merger.append(inputpdf)
             inputpdf.close()
         else:
@@ -29,8 +30,8 @@ def processreport():
     merger.close()
     output.close()
     for i in range(3):
-        if os.path.isfile("PDF/100paintings" + str(i) + ".pdf"):
-            os.remove("PDF/100paintings" + str(i) + ".pdf")
+        if os.path.isfile("PDF/100paintings" + str(strindex) + ".pdf"):
+            os.remove("PDF/100paintings" + str(strindex) + ".pdf")
 
 if sys.platform[0] == 'l':
     path = '/home/jan/git/Paintings'
