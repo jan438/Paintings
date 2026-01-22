@@ -82,7 +82,7 @@ pagewidthportrait = A4[0]
 pageheightportrait = A4[1] 
 pagewidthlandscape = A4[1]
 pageheightlandscape = A4[0]
-index = 4
+index = 2
 strindex = "{:03d}".format(index)
 x = float(paintingsdata[index][2])
 y = float(paintingsdata[index][3])
@@ -115,8 +115,8 @@ else:
     c.setFont(paintingfont, 20)
     c.drawString(x + 5.0, y - 20.0, paintingsdata[index][0])
     c.drawString(x - 20, y - 170.0, paintingsdata[index][1])
-    c.drawString(x + 160, y - 110.0, paintingsdata[index][7])
-    c.drawString(x + 160, y - 140.0, paintingsdata[index][8])
-    c.drawString(x + 160, y - 170.0, paintingsdata[index][9])
+    c.drawString(x + 140, y - 110.0, paintingsdata[index][7])
+    c.drawString(x + 140, y - 140.0, paintingsdata[index][8])
+    c.drawString(x + 140, y - 170.0, paintingsdata[index][9])
 c.save()
 key = input("Wait")
