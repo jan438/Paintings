@@ -86,7 +86,8 @@ index = 6
 strindex = "{:03d}".format(index)
 painting = "Paintings/" + paintingsdata[index][0] + ".jpg"
 I = Image(painting)
-print(I)
+#ratio = calwimage.drawWidth / calwimage.drawHeight
+print(I.drawWidth)
 x = float(paintingsdata[index][2])
 y = float(paintingsdata[index][3])
 w = float(paintingsdata[index][4])
