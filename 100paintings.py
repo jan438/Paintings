@@ -17,9 +17,9 @@ from reportlab.platypus import Image
 
 paintingsdata = []
 paintingfont = "LiberationSerif"
-#pagesize=(595.27,841.89)
-centerportrait = (300, 300)
-centerlandscape = (200, 400)
+#pagesize=(595.27, 841.89)
+centerportrait = (297.635, 300)
+centerlandscape = (420.945, 400)
 
 def scaleSVG(svgfile, scaling_factor):
     svg_root = load_svg_file(svgfile)
