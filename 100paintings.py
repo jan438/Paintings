@@ -17,6 +17,7 @@ from reportlab.platypus import Image
 
 paintingsdata = []
 paintingfont = "LiberationSerif"
+#pagesize=(595.27,841.89)
 centerportrait = (300, 300)
 centerlandscape = (200, 400)
 
@@ -84,7 +85,7 @@ pagewidthportrait = A4[0]
 pageheightportrait = A4[1] 
 pagewidthlandscape = A4[1]
 pageheightlandscape = A4[0]
-index = 6
+index = 0
 strindex = "{:03d}".format(index)
 painting = "Paintings/" + paintingsdata[index][0] + ".jpg"
 I = Image(painting)
