@@ -85,7 +85,7 @@ pagewidthportrait = A4[0]
 pageheightportrait = A4[1] 
 pagewidthlandscape = A4[1]
 pageheightlandscape = A4[0]
-index = 0
+index = 1
 strindex = "{:03d}".format(index)
 painting = "Paintings/" + paintingsdata[index][0] + ".jpg"
 I = Image(painting)
@@ -102,7 +102,7 @@ else:
     c = canvas.Canvas("PDF/100paintings" + strindex + ".pdf", (landscape(A4)))
     c.linearGradient(0, 0, pagewidthlandscape, pageheightlandscape, (HexColor("#3f5d82"), HexColor("#4f73a1")))
     c.rect(0, 0, pagewidthlandscape, pageheightlandscape)
-    x = centerlandscape[0]
+    x = centerlandscape[0] - w * 0.5 * sc
     y = centerlandscape[1]
 c.setTitle(paintingsdata[index][0])
 c.saveState()
