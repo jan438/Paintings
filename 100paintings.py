@@ -86,11 +86,10 @@ index = 0
 strindex = "{:03d}".format(index)
 painting = "Paintings/" + paintingsdata[index][0] + ".jpg"
 I = Image(painting)
-print(painting, I.drawWidth, I.drawHeight)
+w = I.drawWidth / 10
+h = I.drawHeight / 10
 x = float(paintingsdata[index][2])
 y = float(paintingsdata[index][3])
-w = float(paintingsdata[index][4])
-h = float(paintingsdata[index][5])
 sc = float(paintingsdata[index][6])
 if h >= w:
     c = canvas.Canvas("PDF/100paintings" + strindex + ".pdf", (portrait(A4)))
