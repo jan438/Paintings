@@ -3,7 +3,6 @@ import math
 import sys
 import os
 import csv
-from PIL import Image, ImageOps, ImageDraw
 from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor
 from reportlab.lib.units import inch, mm
@@ -13,7 +12,8 @@ from reportlab.lib.colors import red, yellow, green
 from reportlab.graphics import renderPDF
 from svglib.svglib import svg2rlg, load_svg_file, SvgRenderer
 from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont 
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.platypus import Image
 
 paintingsdata = []
 paintingfont = "LiberationSerif"
@@ -84,6 +84,9 @@ pagewidthlandscape = A4[1]
 pageheightlandscape = A4[0]
 index = 6
 strindex = "{:03d}".format(index)
+painting = "Paintings/" + paintingsdata[index][0] + ".jpg"
+I = Image(painting)
+print(I)
 x = float(paintingsdata[index][2])
 y = float(paintingsdata[index][3])
 w = float(paintingsdata[index][4])
@@ -98,7 +101,6 @@ else:
     c.linearGradient(0, 0, pagewidthlandscape, pageheightlandscape, (HexColor("#3f5d82"), HexColor("#4f73a1")))
     c.rect(0, 0, pagewidthlandscape, pageheightlandscape)
 c.setTitle(paintingsdata[index][0])
-painting = "Paintings/" + paintingsdata[index][0] + ".jpg"
 c.saveState()
 c.translate(x, y)
 c.scale(sc, sc)
