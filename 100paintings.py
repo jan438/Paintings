@@ -82,12 +82,11 @@ pagewidthportrait = A4[0]
 pageheightportrait = A4[1] 
 pagewidthlandscape = A4[1]
 pageheightlandscape = A4[0]
-index = 6
+index = 0
 strindex = "{:03d}".format(index)
 painting = "Paintings/" + paintingsdata[index][0] + ".jpg"
 I = Image(painting)
-#ratio = calwimage.drawWidth / calwimage.drawHeight
-print(I.drawWidth)
+print(painting, I.drawWidth, I.drawHeight)
 x = float(paintingsdata[index][2])
 y = float(paintingsdata[index][3])
 w = float(paintingsdata[index][4])
