@@ -117,10 +117,10 @@ c.setFillColor(HexColor('#FFFFFF'))
 c.setFont(paintingfont, 25)
 c.drawString(x + 50.0, y - 20.0, paintingsdata[index][0])
 painter = "Painters/" + paintingsdata[index][1] + ".jpg"
-c.drawImage(painter, x - 20, infoyline - 110, width = 77, height = 100, mask='auto')
+infox = 100
+c.drawImage(painter, infox - 20, infoyline - 110, width = 77, height = 100, mask='auto')
 c.setFillColor(HexColor('#FFFFFF'))
 c.setFont(paintingfont, 20)
-infox = 100
 c.drawString(infox,  infoyline, paintingsdata[index][1])
 c.drawString(infox + 100, infoyline - 70.0, paintingsdata[index][7])
 c.drawString(infox + 100, infoyline - 40.0, paintingsdata[index][8])
