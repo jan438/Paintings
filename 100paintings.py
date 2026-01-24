@@ -8,7 +8,7 @@ from reportlab.lib.colors import HexColor
 from reportlab.lib.units import inch, mm
 from reportlab.lib.pagesizes import portrait, landscape, A4
 from reportlab.lib.utils import ImageReader
-from reportlab.lib.colors import red, yellow, green, white, gold
+from reportlab.lib.colors import red, yellow, green, white, gold, brown
 from reportlab.graphics import renderPDF
 from svglib.svglib import svg2rlg, load_svg_file, SvgRenderer
 from reportlab.pdfbase import pdfmetrics
@@ -37,13 +37,21 @@ def scaleSVG(svgfile, scaling_factor):
 
 def add_frame(c, mode, x, y, w, h,  color1, color2):
     print("add frame", mode, x, y, w, h)
-    c.setStrokeColor(gold)
+    c.setStrokeColor(color2)
     p = c.beginPath()
     p.moveTo(x - 1, y - 1)
     p.lineTo(x - 1, y + h + 1)
     p.lineTo(x + w + 1, y + h + 1)
     p.lineTo(x + w + 1, y - 1)
     p.lineTo(x - 1, y - 1)
+    c.drawPath(p, fill = 0, stroke = 1)
+    c.setStrokeColor(color1)
+    p = c.beginPath()
+    p.moveTo(x - 2, y - 2)
+    p.lineTo(x - 2, y + h + 2)
+    p.lineTo(x + w + 2, y + h + 2)
+    p.lineTo(x + w + 2, y - 2)
+    p.lineTo(x - 2, y - 2)
     c.drawPath(p, fill = 0, stroke = 1)
     return
 
@@ -105,7 +113,7 @@ c.translate(x, y)
 c.scale(sc, sc)
 c.drawImage(painting, 0, 0, width = w, height = h, mask='auto')
 c.restoreState()
-add_frame(c, paintingsdata[index][3], x, y, w * sc, h * sc, (139, 69, 19), (218, 165, 32))
+add_frame(c, paintingsdata[index][3], x, y, w * sc, h * sc, brown, gold)
 c.setFillColor(HexColor('#FFFFFF'))
 c.setFont(paintingfont, 25)
 c.drawString(x + 50.0, y - 20.0, paintingsdata[index][0])
