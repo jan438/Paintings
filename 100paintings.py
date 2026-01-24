@@ -18,8 +18,11 @@ from reportlab.platypus import Image
 paintingsdata = []
 paintingfont = "LiberationSerif"
 #pagesize=(595.27, 841.89)
-centerportrait = (297.635, 300)
-centerlandscape = (420.945, 400)
+centerportrait = (297.635, 481.695)
+centerlandscape = (420.945, 357.638)
+infoyline = 120
+#centeryportait 841.39 - 120 = 721.39 / 2 = 361.695 + 120 = 481.695
+#centerylandscape 595.27 - 120 = 475.27 / 2 = 237.635 + 120 = 357.638
 
 def scaleSVG(svgfile, scaling_factor):
     svg_root = load_svg_file(svgfile)
@@ -97,13 +100,13 @@ if h >= w:
     c.linearGradient(0, 0, pagewidthportrait, pageheightportrait, (HexColor("#3f5d82"), HexColor("#4f73a1")))
     c.rect(0, 0, pagewidthportrait, pageheightportrait)
     x = centerportrait[0] - w * 0.5 * sc
-    y = centerportrait[1]
+    y = centerportrait[1] - h * 0.5 * sc
 else:
     c = canvas.Canvas("PDF/100paintings" + strindex + ".pdf", (landscape(A4)))
     c.linearGradient(0, 0, pagewidthlandscape, pageheightlandscape, (HexColor("#3f5d82"), HexColor("#4f73a1")))
     c.rect(0, 0, pagewidthlandscape, pageheightlandscape)
     x = centerlandscape[0] - w * 0.5 * sc
-    y = centerlandscape[1]
+    y = centerlandscape[1] - h * 0.5 * sc
 c.setTitle(paintingsdata[index][0])
 c.saveState()
 c.translate(x, y)
