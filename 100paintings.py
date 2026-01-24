@@ -120,7 +120,7 @@ painter = "Painters/" + paintingsdata[index][1] + ".jpg"
 c.drawImage(painter, x - 20, infoyline - 110, width = 77, height = 100, mask='auto')
 c.setFillColor(HexColor('#FFFFFF'))
 c.setFont(paintingfont, 20)
-c.drawString(x - 20,  infoyline - 120.0, paintingsdata[index][1])
+c.drawString(x - 20,  infoyline, paintingsdata[index][1])
 c.drawString(x + 140, infoyline - 90.0, paintingsdata[index][7])
 c.drawString(x + 140, infoyline - 80.0, paintingsdata[index][8])
 c.drawString(x + 140, infoyline - 70.0, paintingsdata[index][9])
