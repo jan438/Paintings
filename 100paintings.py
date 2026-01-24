@@ -35,25 +35,9 @@ def scaleSVG(svgfile, scaling_factor):
     drawing.scale(scaling_x, scaling_y)
     return drawing
 
-def add_frame(image_path, frame_width=50, frame_color=(139, 69, 19)):
-    framed_img = None
-    try:
-        img = Image.open(image_path).convert("RGB")
-        framed_img = ImageOps.expand(img, border=frame_width, fill=frame_color)
-        draw = ImageDraw.Draw(framed_img)
-        inner_margin = 5
-        for i in range(inner_margin):
-            draw.rectangle(
-                [frame_width - i, frame_width - i,
-                 framed_img.width - frame_width + i - 1,
-                 framed_img.height - frame_width + i - 1],
-                outline=(218, 165, 32)  # Golden color
-            )
-        return framed_img
-    except FileNotFoundError:
-        print("Error: The specified image file was not found.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
+def add_frame(c, mode, x, y, w, h,  color1, color2):
+    print("add frame", mode, x, y, w, h)
+    return
 
 if sys.platform[0] == 'l':
     path = '/home/jan/git/Paintings'
@@ -113,6 +97,7 @@ c.translate(x, y)
 c.scale(sc, sc)
 c.drawImage(painting, 0, 0, width = w, height = h, mask='auto')
 c.restoreState()
+add_frame(c, paintingsdata[index][3], x, y, w, h, (139, 69, 19), (218, 165, 32))
 c.setFillColor(HexColor('#FFFFFF'))
 c.setFont(paintingfont, 25)
 c.drawString(x + 50.0, y - 20.0, paintingsdata[index][0])
