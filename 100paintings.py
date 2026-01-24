@@ -94,7 +94,7 @@ painting = "Paintings/" + paintingsdata[index][0] + ".jpg"
 I = Image(painting)
 w = I.drawWidth / 10
 h = I.drawHeight / 10
-sc = 3.0
+sc = float(paintingsdata[index][2])
 if h >= w:
     c = canvas.Canvas("PDF/100paintings" + strindex + ".pdf", (portrait(A4)))
     c.linearGradient(0, 0, pagewidthportrait, pageheightportrait, (HexColor("#3f5d82"), HexColor("#4f73a1")))
