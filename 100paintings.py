@@ -8,7 +8,7 @@ from reportlab.lib.colors import HexColor
 from reportlab.lib.units import inch, mm
 from reportlab.lib.pagesizes import portrait, landscape, A4
 from reportlab.lib.utils import ImageReader
-from reportlab.lib.colors import red, yellow, green
+from reportlab.lib.colors import red, yellow, green, white
 from reportlab.graphics import renderPDF
 from svglib.svglib import svg2rlg, load_svg_file, SvgRenderer
 from reportlab.pdfbase import pdfmetrics
@@ -37,6 +37,7 @@ def scaleSVG(svgfile, scaling_factor):
 
 def add_frame(c, mode, x, y, w, h,  color1, color2):
     print("add frame", mode, x, y, w, h)
+    c.setStrokeColor(white)
     p = c.beginPath()
     p.moveTo(x - 1, y - 1)
     p.lineTo(x - 1, y + h + 1)
