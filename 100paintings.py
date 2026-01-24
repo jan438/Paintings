@@ -41,6 +41,7 @@ def add_frame(c, mode, x, y, w, h,  color1, color2):
     p = c.beginPath()
     p.moveTo(x - 1, y - 1)
     p.lineTo(x - 1, y + h + 1)
+    p.lineTo(x + w + 1, y + h + 1)
     c.drawPath(p, fill = 0, stroke = 1)
     return
 
