@@ -36,7 +36,7 @@ def scaleSVG(svgfile, scaling_factor):
     return drawing
 
 def add_frame(c, mode, x, y, w, h,  color1, color2):
-    if mode == 1:
+    if mode == "1":
         c.setLineCap(2)
         c.setStrokeColor(color2)
         p = c.beginPath()
