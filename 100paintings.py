@@ -36,25 +36,27 @@ def scaleSVG(svgfile, scaling_factor):
     return drawing
 
 def add_frame(c, mode, x, y, w, h,  color1, color2):
-    print("add frame", mode, x, y, w, h)
-    c.setLineCap(2)
-    c.setStrokeColor(color2)
-    p = c.beginPath()
-    p.moveTo(x - 1, y - 1)
-    p.lineTo(x - 1, y + h + 1)
-    p.lineTo(x + w + 1, y + h + 1)
-    p.lineTo(x + w + 1, y - 1)
-    p.lineTo(x - 1, y - 1)
-    c.drawPath(p, fill = 0, stroke = 1)
-    c.setStrokeColor(color1)
-    c.setLineWidth(5)
-    p = c.beginPath()
-    p.moveTo(x - 4, y - 4)
-    p.lineTo(x - 4, y + h + 4)
-    p.lineTo(x + w + 4, y + h + 4)
-    p.lineTo(x + w + 4, y - 4)
-    p.lineTo(x - 4, y - 4)
-    c.drawPath(p, fill = 0, stroke = 1)
+    if mode == 1:
+        c.setLineCap(2)
+        c.setStrokeColor(color2)
+        p = c.beginPath()
+        p.moveTo(x - 1, y - 1)
+        p.lineTo(x - 1, y + h + 1)
+        p.lineTo(x + w + 1, y + h + 1)
+        p.lineTo(x + w + 1, y - 1)
+        p.lineTo(x - 1, y - 1)
+        c.drawPath(p, fill = 0, stroke = 1)
+        c.setStrokeColor(color1)
+        c.setLineWidth(5)
+        p = c.beginPath()
+        p.moveTo(x - 4, y - 4)
+        p.lineTo(x - 4, y + h + 4)
+        p.lineTo(x + w + 4, y + h + 4)
+        p.lineTo(x + w + 4, y - 4)
+        p.lineTo(x - 4, y - 4)
+        c.drawPath(p, fill = 0, stroke = 1)
+    else:
+        print("mode", mode)
     return
 
 if sys.platform[0] == 'l':
