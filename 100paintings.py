@@ -137,7 +137,7 @@ c.restoreState()
 draw_frame(c, paintingsdata[index][3], x, y, w * sc, h * sc, HexColor("#8b5e3c"), HexColor("#d4af37"))
 c.setFillColor(HexColor('#FFFFFF'))
 c.setFont(paintingfont, 25)
-c.drawString(x + 50.0, y - 30.0, paintingsdata[index][0])
+c.drawString(x + 50.0, y - 35.0, paintingsdata[index][0])
 painter = "Painters/" + paintingsdata[index][1] + ".jpg"
 infox = 100
 c.drawImage(painter, infox - 20, infoyline - 110, width = 77, height = 100, mask='auto')
