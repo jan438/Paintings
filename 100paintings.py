@@ -104,7 +104,7 @@ pagewidthportrait = A4[0]
 pageheightportrait = A4[1] 
 pagewidthlandscape = A4[1]
 pageheightlandscape = A4[0]
-index = 1
+index = 3
 strindex = "{:03d}".format(index)
 painting = "Paintings/" + paintingsdata[index][0] + ".jpg"
 I = Image(painting)
@@ -129,7 +129,7 @@ c.translate(x, y)
 c.scale(sc, sc)
 c.drawImage(painting, 0, 0, width = w, height = h, mask='auto')
 c.restoreState()
-draw_frame(c, paintingsdata[index][3], x, y, w * sc, h * sc, brown, gold)
+draw_frame(c, paintingsdata[index][3], x, y, w * sc, h * sc, HexColor("#8b5e3c"), gold)
 c.setFillColor(HexColor('#FFFFFF'))
 c.setFont(paintingfont, 25)
 c.drawString(x + 50.0, y - 30.0, paintingsdata[index][0])
