@@ -50,16 +50,16 @@ def draw_frame(c, mode, x, y, w, h,  color1, color2):
         p.lineTo(x - fr1d, y - fr1d)
         c.drawPath(p, fill = 0, stroke = 1)
         fr2w = 10
-        fr2d = fr2w / 2
+        fr2d = fr2w / 2 + 6
         c.setLineCap(2)
         c.setStrokeColor(color1)
         c.setLineWidth(fr2w)
         p = c.beginPath()
-        p.moveTo(x - fr2d - 6, y - fr2d - 6)
-        p.lineTo(x - fr2d - 6, y + h + fr2d + 6)
-        p.lineTo(x + w + fr2d + 6, y + h + fr2d + 6)
-        p.lineTo(x + w + fr2d + 6, y - fr2d - 6)
-        p.lineTo(x - fr2d - 6, y - fr2d - 6)
+        p.moveTo(x - fr2d, y - fr2d)
+        p.lineTo(x - fr2d, y + h + fr2d)
+        p.lineTo(x + w + fr2d, y + h + fr2d)
+        p.lineTo(x + w + fr2d, y - fr2d)
+        p.lineTo(x - fr2d, y - fr2d)
         c.drawPath(p, fill = 0, stroke = 1)
     elif mode == "2":
         c.setLineCap(2)
