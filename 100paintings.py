@@ -44,21 +44,10 @@ def draw_frame(c, mode, x, y, w, h,  color1, color2):
         c.setLineWidth(fr1w)
         p = c.beginPath()
         p.moveTo(x - fr1d, y - fr1d)
-        p.lineTo(x + fr1d, y + h + fr1d)
+        p.lineTo(x - fr1d, y + h + fr1d)
         p.lineTo(x + w + fr1d, y + h + fr1d)
-        p.lineTo(x + w + fr1d, y + fr1d)
+        p.lineTo(x + w + fr1d, y - fr1d)
         p.lineTo(x - fr1d, y - fr1d)
-        c.drawPath(p, fill = 0, stroke = 1)
-        fr2w = 6
-        fr2d = fr2w / 2
-        c.setStrokeColor(color1)
-        c.setLineWidth(fr2w)
-        p = c.beginPath()
-        p.moveTo(x - fr2d, y - fr2d)
-        p.lineTo(x + fr2d, y + h + fr2d)
-        p.lineTo(x + w + fr2d, y + h + fr2d)
-        p.lineTo(x + w + fr2d, y + fr2d)
-        p.lineTo(x - fr2d, y - fr2d)
         c.drawPath(p, fill = 0, stroke = 1)
     elif mode == "2":
         c.setLineCap(2)
@@ -68,7 +57,7 @@ def draw_frame(c, mode, x, y, w, h,  color1, color2):
         p.moveTo(x - 5, y - 5)
         p.lineTo(x - 5, y + h + 5)
         p.lineTo(x + w + 5, y + h + 5)
-        p.lineTo(x + w + 5, y + 5)
+        p.lineTo(x + w + 5, y - 5)
         p.lineTo(x - 5, y - 5)
         c.drawPath(p, fill = 0, stroke = 1)
     else:
