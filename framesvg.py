@@ -35,30 +35,6 @@ d.append(draw.Rectangle(
     fill='white'
 ))
 
-# Decorative pattern: animated circles along the frame
-num_circles = 40
-radius = 8
-for i in range(num_circles):
-    angle = (2 * math.pi / num_circles) * i
-    # Position circles along a square path
-    if i < num_circles // 4:
-        x = -width/2 + frame_thickness/2
-        y = -height/2 + (i / (num_circles/4)) * (height - frame_thickness)
-    elif i < num_circles // 2:
-        x = -width/2 + frame_thickness/2 + ((i - num_circles/4) / (num_circles/4)) * (width - frame_thickness)
-        y = height/2 - frame_thickness/2
-    elif i < 3*num_circles // 4:
-        x = width/2 - frame_thickness/2
-        y = height/2 - frame_thickness/2 - ((i - num_circles/2) / (num_circles/4)) * (height - frame_thickness)
-    else:
-        x = width/2 - frame_thickness/2 - ((i - 3*num_circles/4) / (num_circles/4)) * (width - frame_thickness)
-        y = -height/2 + frame_thickness/2
-
-    circle = draw.Circle(x, y, radius, fill='gold', stroke='black', stroke_width=1)
-    # Animate color
-    circle.append_anim(draw.Animate('fill', '2s', values='gold;orange;gold', repeatCount='indefinite'))
-    d.append(circle)
-
 # Save SVG
 d.save_svg('SVG/dynamic_frame.svg')
 
