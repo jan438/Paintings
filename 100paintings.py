@@ -40,11 +40,11 @@ def add_frame(c, mode, x, y, w, h,  color1, color2):
         c.setLineCap(2)
         c.setStrokeColor(color2)
         p = c.beginPath()
-        p.moveTo(x - 1, y - 1)
-        p.lineTo(x - 1, y + h + 1)
-        p.lineTo(x + w + 1, y + h + 1)
-        p.lineTo(x + w + 1, y - 1)
-        p.lineTo(x - 1, y - 1)
+        p.moveTo(x, y)
+        p.lineTo(x, y + h)
+        p.lineTo(x + w, y + h)
+        p.lineTo(x + w, y)
+        p.lineTo(x, y)
         c.drawPath(p, fill = 0, stroke = 1)
         c.setStrokeColor(color1)
         c.setLineWidth(5)
@@ -92,7 +92,7 @@ pagewidthportrait = A4[0]
 pageheightportrait = A4[1] 
 pagewidthlandscape = A4[1]
 pageheightlandscape = A4[0]
-index = 0
+index = 3
 strindex = "{:03d}".format(index)
 painting = "Paintings/" + paintingsdata[index][0] + ".jpg"
 I = Image(painting)
