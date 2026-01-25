@@ -37,15 +37,17 @@ def scaleSVG(svgfile, scaling_factor):
 
 def draw_frame(c, mode, x, y, w, h,  color1, color2):
     if mode == "1":
+        fr1w = 6
+        fr1d = fr1w / 2
         c.setLineCap(2)
         c.setStrokeColor(color2)
-        c.setLineWidth(6)
+        c.setLineWidth(fr1w)
         p = c.beginPath()
-        p.moveTo(x - 3, y - 3)
-        p.lineTo(x + 3, y + h + 3)
-        p.lineTo(x + w + 3, y + h + 3)
-        p.lineTo(x + w + 3, y + 3)
-        p.lineTo(x - 3, y - 3)
+        p.moveTo(x - fr1d, y - fr1d)
+        p.lineTo(x + fr1d, y + h + fr1d)
+        p.lineTo(x + w + fr1d, y + h + fr1d)
+        p.lineTo(x + w + fr1d, y + fr1d)
+        p.lineTo(x - fr1d, y - fr1d)
         c.drawPath(p, fill = 0, stroke = 1)
         c.setStrokeColor(color1)
         c.setLineWidth(6)
