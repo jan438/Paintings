@@ -60,7 +60,7 @@ for i in range(num_circles):
     d.append(circle)
 
 # Save SVG
-d.save_svg('PDF/dynamic_frame.svg')
+d.save_svg('SVG/dynamic_frame.svg')
 
 # Optional: Save as PNG (requires CairoSVG installed)
 try:
