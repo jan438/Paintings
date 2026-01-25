@@ -35,7 +35,7 @@ def scaleSVG(svgfile, scaling_factor):
     drawing.scale(scaling_x, scaling_y)
     return drawing
 
-def add_frame(c, mode, x, y, w, h,  color1, color2):
+def draw_frame(c, mode, x, y, w, h,  color1, color2):
     if mode == "1":
         c.setLineCap(2)
         c.setStrokeColor(color2)
@@ -129,7 +129,7 @@ c.translate(x, y)
 c.scale(sc, sc)
 c.drawImage(painting, 0, 0, width = w, height = h, mask='auto')
 c.restoreState()
-add_frame(c, paintingsdata[index][3], x, y, w * sc, h * sc, brown, gold)
+draw_frame(c, paintingsdata[index][3], x, y, w * sc, h * sc, brown, gold)
 c.setFillColor(HexColor('#FFFFFF'))
 c.setFont(paintingfont, 25)
 c.drawString(x + 50.0, y - 30.0, paintingsdata[index][0])
