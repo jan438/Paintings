@@ -59,13 +59,13 @@ def add_frame(c, mode, x, y, w, h,  color1, color2):
     elif mode == "2":
         c.setLineCap(2)
         c.setStrokeColor(color2)
-        c.setLineWidth(1)
+        c.setLineWidth(10)
         p = c.beginPath()
-        p.moveTo(x, y)
-        p.lineTo(x, y + h)
-        p.lineTo(x + w, y + h)
-        p.lineTo(x + w, y)
-        p.lineTo(x, y)
+        p.moveTo(x - 12, y - 12)
+        p.lineTo(x - 12, y + h + 12)
+        p.lineTo(x + w + 12, y + h + 12)
+        p.lineTo(x + w + 12, y + 12)
+        p.lineTo(x - 12, y -12)
         c.drawPath(p, fill = 0, stroke = 1)
         c.setStrokeColor(color1)
         c.setLineWidth(6)
@@ -76,7 +76,7 @@ def add_frame(c, mode, x, y, w, h,  color1, color2):
 
         p.lineTo(x + w + 3, y - 3)
         p.lineTo(x - 3, y - 3)
-        c.drawPath(p, fill = 0, stroke = 1)
+        #c.drawPath(p, fill = 0, stroke = 1)
     else:
         print("mode", mode)
     return
