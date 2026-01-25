@@ -49,7 +49,7 @@ def draw_frame(c, mode, x, y, w, h,  color1, color2):
         p.lineTo(x + w + fr1d, y - fr1d)
         p.lineTo(x - fr1d, y - fr1d)
         c.drawPath(p, fill = 0, stroke = 1)
-        fr2w = 6
+        fr2w = 10
         fr2d = fr2w / 2
         c.setLineCap(2)
         c.setStrokeColor(color1)
