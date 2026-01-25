@@ -39,6 +39,7 @@ def add_frame(c, mode, x, y, w, h,  color1, color2):
     if mode == "1":
         c.setLineCap(2)
         c.setStrokeColor(color2)
+        c.setLineWidth(1)
         p = c.beginPath()
         p.moveTo(x, y)
         p.lineTo(x, y + h)
