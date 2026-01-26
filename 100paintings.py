@@ -34,13 +34,56 @@ def scaleSVG(svgfile, scaling_factor):
     drawing.height = drawing.height * scaling_y
     drawing.scale(scaling_x, scaling_y)
     return drawing
+    
+def hex_to_rgb(hex_color):
+    if not isinstance(hex_color, str):
+        raise ValueError("HEX color must be a string.")
+    hex_color = hex_color.strip().lstrip('#')
+    # Validate length (3 or 6 characters)
+    if len(hex_color) not in (3, 6):
+        raise ValueError("HEX color must be 3 or 6 characters long.")
+    # Expand shorthand HEX (#abc → #aabbcc)
+    if len(hex_color) == 3:
+        hex_color = ''.join([c * 2 for c in hex_color])
+    try:
+        r = int(hex_color[0:2], 16)
+        g = int(hex_color[2:4], 16)
+        b = int(hex_color[4:6], 16)
+    except ValueError:
+        raise ValueError("HEX color contains invalid characters.")
+    return (r, g, b)
+    
+def darken_rgb(color, factor):
+    if not (isinstance(color, tuple) and len(color) == 3):
+        raise ValueError("Color must be a tuple of 3 integers (R, G, B).")
+    if not all(isinstance(c, int) and 0 <= c <= 255 for c in color):
+        raise ValueError("Each RGB component must be an integer between 0 and 255.")
+    if not (0 < factor <= 1):
+        raise ValueError("Factor must be between 0 (exclusive) and 1 (inclusive).")
+    # Multiply each channel by factor and clamp to 0–255
+    return tuple(max(0, min(255, int(c * factor))) for c in color)
+   
+def rgb_to_hex(r, g, b):
+    if not all(isinstance(v, int) for v in (r, g, b)):
+        raise TypeError("RGB values must be integers.")
+    # Validate range
+    if not all(0 <= v <= 255 for v in (r, g, b)):
+        raise ValueError("RGB values must be between 0 and 255.")
+    # Format as HEX string  
+    return "#{:02X}{:02X}{:02X}".format(r, g, b)
 
 def draw_frame(c, mode, x, y, w, h,  color1, color2):
+    color1hex = HexColor(color1)
+    color2hex = HexColor(color2)
+    color1rgb = hex_to_rgb(color1)
+    color1darker = darken_rgb(color1rgb, 0.2)
+    color1darkerhex = rgb_to_hex(color1darker[0], color1darker[1], color1darker[2])
+    print(color1darkerhex)
     if mode == "1":
         fr1w = 6
         fr1d = fr1w / 2
         c.setLineCap(2)
-        c.setStrokeColor(color2)
+        c.setStrokeColor(color2hex)
         c.setLineWidth(fr1w)
         p = c.beginPath()
         p.moveTo(x - fr1d, y - fr1d)
@@ -52,7 +95,7 @@ def draw_frame(c, mode, x, y, w, h,  color1, color2):
         fr2w = 10
         fr2d = fr2w / 2 + 6
         c.setLineCap(2)
-        c.setStrokeColor(color1)
+        c.setStrokeColor(color1hex)
         c.setLineWidth(fr2w)
         p = c.beginPath()
         p.moveTo(x - fr2d, y - fr2d)
@@ -63,7 +106,7 @@ def draw_frame(c, mode, x, y, w, h,  color1, color2):
         c.drawPath(p, fill = 0, stroke = 1)
     elif mode == "2":
         c.setLineCap(2)
-        c.setStrokeColor(color2)
+        c.setStrokeColor(color2hex)
         c.setLineWidth(10)
         p = c.beginPath()
         p.moveTo(x - 5, y - 5)
@@ -134,7 +177,7 @@ c.translate(x, y)
 c.scale(sc, sc)
 c.drawImage(painting, 0, 0, width = w, height = h, mask='auto')
 c.restoreState()
-draw_frame(c, paintingsdata[index][3], x, y, w * sc, h * sc, HexColor("#8b5e3c"), HexColor("#d4af37"))
+draw_frame(c, paintingsdata[index][3], x, y, w * sc, h * sc, "#8b5e3c", "#d4af37")
 c.setFillColor(HexColor('#FFFFFF'))
 c.setFont(paintingfont, 25)
 c.drawString(x + 50.0, y - 35.0, paintingsdata[index][0])
