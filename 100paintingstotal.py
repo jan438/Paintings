@@ -14,7 +14,7 @@ from reportlab.graphics import renderPDF
 from svglib.svglib import svg2rlg, load_svg_file, SvgRenderer
 from pypdf import PdfReader, PdfWriter
 
-maxpaintings = 10
+maxpaintings = 12
 
 def processreport():
     merger = PdfWriter()
