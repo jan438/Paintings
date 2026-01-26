@@ -102,7 +102,7 @@ def draw_frame(c, mode, x, y, w, h,  color1, color2):
         p = c.beginPath()
         p.moveTo(x - fr1w + 1, y + h + fr1w)
         p.lineTo(x, y + h + fr1w)
-        p.lineTo(x, y + h)
+        p.lineTo(x, y + h + 1)
         p.lineTo(x - fr1w + 1, y + h + fr1w - 1)
         c.drawPath(p, fill = 1, stroke = 1)
         p = c.beginPath()
