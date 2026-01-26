@@ -78,13 +78,20 @@ def draw_frame(c, mode, x, y, w, h,  color1, color2):
     color2rgb = hex_to_rgb(color2)
     color2darker = darken_rgb(color2rgb, 0.9)
     color2darkerhex = rgb_to_hex(color2darker[0], color2darker[1], color2darker[2])
-    print(color2darkerhex)
     if mode == "1":
         fr1w = 6
         fr1d = fr1w / 2
         c.setLineCap(2)
         c.setStrokeColor(color2hex)
         c.setLineWidth(fr1w)
+        p = c.beginPath()
+        p.moveTo(x - fr1d, y - fr1d)
+        p.lineTo(x - fr1d, y + h + fr1d)
+        p.lineTo(x + w + fr1d, y + h + fr1d)
+        p.lineTo(x + w + fr1d, y - fr1d)
+        p.lineTo(x - fr1d, y - fr1d)
+        c.drawPath(p, fill = 0, stroke = 1)
+        c.setStrokeColor(color2darkerhex)
         p = c.beginPath()
         p.moveTo(x - fr1d, y - fr1d)
         p.lineTo(x - fr1d, y + h + fr1d)
