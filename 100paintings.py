@@ -75,10 +75,10 @@ def rgb_to_hex(r, g, b):
 def draw_frame(c, mode, x, y, w, h,  color1, color2):
     color1hex = HexColor(color1)
     color2hex = HexColor(color2)
-    color1rgb = hex_to_rgb(color1)
-    color1darker = darken_rgb(color1rgb, 0.9)
-    color1darkerhex = rgb_to_hex(color1darker[0], color1darker[1], color1darker[2])
-    print(color1darkerhex)
+    color2rgb = hex_to_rgb(color2)
+    color2darker = darken_rgb(color2rgb, 0.9)
+    color2darkerhex = rgb_to_hex(color2darker[0], color2darker[1], color2darker[2])
+    print(color2darkerhex)
     if mode == "1":
         fr1w = 6
         fr1d = fr1w / 2
