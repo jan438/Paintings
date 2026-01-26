@@ -76,7 +76,7 @@ def draw_frame(c, mode, x, y, w, h,  color1, color2):
     color1hex = HexColor(color1)
     color2hex = HexColor(color2)
     color1rgb = hex_to_rgb(color1)
-    color1darker = darken_rgb(color1rgb, 0.2)
+    color1darker = darken_rgb(color1rgb, 0.9)
     color1darkerhex = rgb_to_hex(color1darker[0], color1darker[1], color1darker[2])
     print(color1darkerhex)
     if mode == "1":
