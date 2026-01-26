@@ -93,10 +93,9 @@ def draw_frame(c, mode, x, y, w, h,  color1, color2):
         c.drawPath(p, fill = 0, stroke = 1)
         c.setStrokeColor(color2darkerhex)
         p = c.beginPath()
-        p.moveTo(x - fr1d, y + h + fr1d)
+        p.moveTo(x, y + h + fr1d)
         p.lineTo(x + w + fr1d, y + h + fr1d)
-        p.lineTo(x + w + fr1d, y - fr1d)
-        p.lineTo(x - fr1d, y - fr1d)
+        p.lineTo(x + w + fr1d, y)
         c.drawPath(p, fill = 0, stroke = 1)
         fr2w = 10
         fr2d = fr2w / 2 + 6
