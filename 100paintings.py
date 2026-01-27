@@ -73,6 +73,8 @@ def rgb_to_hex(r, g, b):
     return "#{:02X}{:02X}{:02X}".format(r, g, b)
 
 def draw_frame(c, mode, x, y, w, h,  color1, color2):
+    if mode == "0":
+        return
     color1hex = HexColor(color1)
     color2hex = HexColor(color2)
     color2rgb = hex_to_rgb(color2)
@@ -134,8 +136,6 @@ def draw_frame(c, mode, x, y, w, h,  color1, color2):
         p.lineTo(x + w + 5, y - 5)
         p.lineTo(x - 5, y - 5)
         c.drawPath(p, fill = 0, stroke = 1)
-    else:
-        print("mode", mode)
     return
 
 if sys.platform[0] == 'l':
@@ -171,7 +171,7 @@ pagewidthportrait = A4[0]
 pageheightportrait = A4[1] 
 pagewidthlandscape = A4[1]
 pageheightlandscape = A4[0]
-index = 3
+index = 0
 strindex = "{:03d}".format(index)
 painting = "Paintings/" + paintingsdata[index][0] + ".jpg"
 I = Image(painting)
