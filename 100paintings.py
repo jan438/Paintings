@@ -200,7 +200,8 @@ c.restoreState()
 draw_frame(c, paintingsdata[index][3], x, y, w * sc, h * sc, paintingsdata[index][4], paintingsdata[index][5])
 c.setFillColor(HexColor('#FFFFFF'))
 c.setFont(paintingfont, 25)
-c.drawString(x + 50.0, y - 35.0, paintingsdata[index][0])
+namewidth = pdfmetrics.stringWidth(paintingsdata[index][0], paintingfont, 25)
+c.drawString(x + 0.5 * (w * sc - namewidth), y - 35.0, paintingsdata[index][0])
 painter = "Painters/" + paintingsdata[index][1] + ".jpg"
 infox = 100
 c.drawImage(painter, infox - 20, infoyline - 110, width = 77, height = 100, mask='auto')
