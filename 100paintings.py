@@ -14,6 +14,7 @@ from svglib.svglib import svg2rlg, load_svg_file, SvgRenderer
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import Image
+from reportlab.pdfbase.pdfmetrics import registerFontFamily
 
 paintingsdata = []
 paintingfont = "LiberationSerif"
