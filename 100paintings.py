@@ -172,7 +172,7 @@ pagewidthportrait = A4[0]
 pageheightportrait = A4[1] 
 pagewidthlandscape = A4[1]
 pageheightlandscape = A4[0]
-index = 6
+index = 0
 strindex = "{:03d}".format(index)
 painting = "Paintings/" + paintingsdata[index][0] + ".jpg"
 I = Image(painting)
@@ -206,8 +206,9 @@ painter = "Painters/" + paintingsdata[index][1] + ".jpg"
 infox = 100
 c.drawImage(painter, infox - 20, infoyline - 90, width = 77, height = 100, mask='auto')
 c.setFillColor(HexColor('#FFFFFF'))
-c.setFont(paintingfont, 20)
+c.setFont(paintingfont, 22)
 c.drawString(infox + 100, infoyline, paintingsdata[index][1])
+c.setFont(paintingfont, 20)
 c.drawString(infox + 100, infoyline - 100.0, paintingsdata[index][7])
 c.drawString(infox + 100, infoyline - 70.0, paintingsdata[index][8])
 c.drawString(infox + 100, infoyline - 40.0, paintingsdata[index][9])
