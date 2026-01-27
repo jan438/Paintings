@@ -78,7 +78,7 @@ def draw_frame(c, mode, x, y, w, h,  color1, color2):
     color1hex = HexColor(color1)
     color2hex = HexColor(color2)
     color2rgb = hex_to_rgb(color2)
-    color2darker = darken_rgb(color2rgb, 0.9)
+    color2darker = darken_rgb(color2rgb, 0.8)
     color2darkerhex = rgb_to_hex(color2darker[0], color2darker[1], color2darker[2])
     if mode == "1":
         fr1w = 6
@@ -171,7 +171,7 @@ pagewidthportrait = A4[0]
 pageheightportrait = A4[1] 
 pagewidthlandscape = A4[1]
 pageheightlandscape = A4[0]
-index = 0
+index = 3
 strindex = "{:03d}".format(index)
 painting = "Paintings/" + paintingsdata[index][0] + ".jpg"
 I = Image(painting)
