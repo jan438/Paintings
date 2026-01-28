@@ -3,7 +3,6 @@ import math
 import sys
 import os
 import csv
-from PIL import Image, ImageOps, ImageDraw
 from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor
 from reportlab.lib.units import inch, mm
@@ -13,6 +12,7 @@ from reportlab.lib.colors import red, yellow, green
 from reportlab.graphics import renderPDF
 from svglib.svglib import svg2rlg, load_svg_file, SvgRenderer
 from pypdf import PdfReader, PdfWriter
+from reportlab.platypus import Image
 
 maxpaintings = 25
 paintingsdata = []
@@ -50,6 +50,10 @@ with open(file_to_open, 'r') as file:
         paintingsdata.append(row)
         count += 1
 for i in range(maxpaintings):
-    print("Painting",i, paintingsdata[i][0])
+    painting = "Paintings/" + paintingsdata[i][0] + ".jpg"
+    I = Image(painting)
+    w = I.drawWidth / 10
+    h = I.drawHeight / 10
+    print("Painting",i, paintingsdata[i][0], "Width", w, "Height", h)
 processreport()
 key = input("Wait")
