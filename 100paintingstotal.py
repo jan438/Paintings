@@ -15,6 +15,7 @@ from svglib.svglib import svg2rlg, load_svg_file, SvgRenderer
 from pypdf import PdfReader, PdfWriter
 
 maxpaintings = 25
+paintingsdata = []
 
 def processreport():
     merger = PdfWriter()
@@ -41,5 +42,13 @@ if sys.platform[0] == 'l':
 if sys.platform[0] == 'w':
     path = "C:/Users/janbo/OneDrive/Documents/GitHub/Paintings"
 os.chdir(path)
+file_to_open = "Data/100paintings.csv"
+with open(file_to_open, 'r') as file:
+    csvreader = csv.reader(file, delimiter = ';')
+    count = 0
+    for row in csvreader:
+        paintingsdata.append(row)
+        print(count, paintingsdata[count][9])
+        count += 1
 processreport()
 key = input("Wait")
