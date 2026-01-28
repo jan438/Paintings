@@ -179,7 +179,7 @@ I = Image(painting)
 w = I.drawWidth / 10
 h = I.drawHeight / 10
 sc = float(paintingsdata[index][2])
-if h >= w:
+if h >= 0.82 * w:
     c = canvas.Canvas("PDF/100paintings" + strindex + ".pdf", (portrait(A4)))
     c.linearGradient(0, 0, pagewidthportrait, pageheightportrait, (HexColor("#3f5d82"), HexColor("#4f73a1")))
     c.rect(0, 0, pagewidthportrait, pageheightportrait)
