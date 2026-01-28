@@ -48,7 +48,8 @@ with open(file_to_open, 'r') as file:
     count = 0
     for row in csvreader:
         paintingsdata.append(row)
-        print(count, paintingsdata[count][9])
         count += 1
+for i in range(maxpaintings):
+    print("Painting",i, paintingsdata[i][0])
 processreport()
 key = input("Wait")
