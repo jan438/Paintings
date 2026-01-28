@@ -21,7 +21,7 @@ def processreport():
     merger = PdfWriter()
     for i in range(maxpaintings):
         strindex = "{:03d}".format(i)
-        print(strindex)
+        #print(strindex)
         if os.path.isfile("PDF/100paintings" + str(strindex) + ".pdf"):
             inputpdf = open("PDF/100paintings" + str(strindex) + ".pdf", "rb")
             merger.append(inputpdf)
@@ -52,8 +52,8 @@ with open(file_to_open, 'r') as file:
 for i in range(maxpaintings):
     painting = "Paintings/" + paintingsdata[i][0] + ".jpg"
     I = Image(painting)
-    w = I.drawWidth / 10
-    h = I.drawHeight / 10
+    w = I.drawWidth
+    h = I.drawHeight
     print("Painting",i, paintingsdata[i][0], "Width", w, "Height", h)
 processreport()
 key = input("Wait")
