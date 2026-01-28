@@ -107,13 +107,13 @@ def draw_frame(c, mode, x, y, w, h,  color1, color2):
         p.lineTo(x, y + h + fr1w)
         p.lineTo(x, y + h)
         p.lineTo(x - fr1w, y + h + fr1w)
-        c.drawPath(p, fill = 1, stroke = 1)
+        c.drawPath(p, fill = 1, stroke = 0)
         p = c.beginPath()
         p.moveTo(x + w, y)
         p.lineTo(x + w + fr1w, y)
         p.lineTo(x + w + fr1w, y - fr1w)
         p.lineTo(x + w, y)
-        c.drawPath(p, fill = 1, stroke = 1)
+        c.drawPath(p, fill = 1, stroke = 0)
         fr2w = 10
         fr2d = fr2w / 2 + 6
         c.setLineCap(2)
@@ -172,7 +172,7 @@ pagewidthportrait = A4[0]
 pageheightportrait = A4[1] 
 pagewidthlandscape = A4[1]
 pageheightlandscape = A4[0]
-index = 9
+index = 3
 strindex = "{:03d}".format(index)
 painting = "Paintings/" + paintingsdata[index][0] + ".jpg"
 I = Image(painting)
