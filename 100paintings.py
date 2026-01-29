@@ -20,10 +20,10 @@ paintingsdata = []
 paintingfont = "LiberationSerif"
 #pagesize=(595.27, 841.89)
 centerportrait = (297.635, 495.695)
-centerlandscape = (420.945, 357.638)
+centerlandscape = (420.945, 372.638)
 infoyline = 150
 #centeryportait 841.39 - 150 = 691.39 / 2 = 345.695 + 150 = 495.695
-#centerylandscape 595.27 - 120 = 475.27 / 2 = 237.635 + 120 = 357.638
+#centerylandscape 595.27 - 150 = 445.27 / 2 = 222.635 + 150 = 372.638
 
 def scaleSVG(svgfile, scaling_factor):
     svg_root = load_svg_file(svgfile)
@@ -172,7 +172,7 @@ pagewidthportrait = A4[0]
 pageheightportrait = A4[1] 
 pagewidthlandscape = A4[1]
 pageheightlandscape = A4[0]
-index = 0
+index = 1
 strindex = "{:03d}".format(index)
 painting = "Paintings/" + paintingsdata[index][0] + ".jpg"
 I = Image(painting)
