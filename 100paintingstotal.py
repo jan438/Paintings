@@ -56,30 +56,23 @@ for i in range(maxpaintings):
     h = I.drawHeight
     # 841.89
     # 595.27
+    # nightwatch = 2.5?
     if h >= 0.75 * w:
         mode = "P"
         minmarginhor = 60
         minmarginver = 60
         roomhor = 595.27 - 2 * minmarginhor
         roomver = 841.89 - 2 * minmarginver
-        ratiohor = roomhor / w
-        ratiover = roomver / h
-        if ratiohor > ratiover:
-            sc = roomhor / w
-        else:
-            sc = roomver / h
+        schor = roomhor / w
+        scver = roomver / h
     else:
         mode = "L"
         minmarginhor = 60
         minmarginver = 60
         roomhor = 841.89 - 2 * minmarginhor
         roomver = 595.27 - 2 * minmarginver
-        ratiohor = roomhor / w
-        ratiover = roomver / h
-        if ratiohor > ratiover:
-            sc = roomhor / w
-        else:
-            sc = roomver / h
-    print(i, paintingsdata[i][0], "W", w, "H", h, "Sc", sc, "mode", mode, "room", roomhor, roomver, "ratio", ratiohor, ratiover)
+        schor = roomhor / w
+        scver = roomver / h
+    print(i, paintingsdata[i][0], "W", w, "H", h, "Sc", round(schor), round(scver), "mode", mode)
 processreport()
 key = input("Wait")
