@@ -19,10 +19,10 @@ from reportlab.pdfbase.pdfmetrics import registerFontFamily
 paintingsdata = []
 paintingfont = "LiberationSerif"
 #pagesize=(595.27, 841.89)
-centerportrait = (297.635, 495.695)
+centerportrait = (297.635, 495.945)
 centerlandscape = (420.945, 372.638)
 infoyline = 150
-#centeryportait 841.39 - 150 = 691.39 / 2 = 345.695 + 150 = 495.695
+#centeryportait 841.89 - 150 = 691.89 / 2 = 345.945 + 150 = 495.945
 #centerylandscape 595.27 - 150 = 445.27 / 2 = 222.635 + 150 = 372.638
 
 def scaleSVG(svgfile, scaling_factor):
