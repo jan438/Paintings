@@ -54,21 +54,21 @@ for i in range(maxpaintings):
     I = Image(painting)
     w = I.drawWidth
     h = I.drawHeight
-    # 841.39
+    # 841.89
     # 595.27
     if h >= 0.75 * w:
         mode = "P"
         minmarginhor = 60
         minmarginver = 60
-        roomhor = 0
-        roomver = 0
+        roomhor = 595.27 - 2 * minmarginhor
+        roomver = 841.89 - 2 * minmarginver
     else:
         mode = "L"
         minmarginhor = 60
         minmarginver = 60
-        roomhor = 0
-        roomver = 0
+        roomhor = 841.89 - 2 * minmarginhor
+        roomver = 595.27 - 2 * minmarginver
     sc = paintingsdata[i][2]
-    print(i, paintingsdata[i][0], "W", w, "H", h, "Sc", sc, "mode", mode)
+    print(i, paintingsdata[i][0], "W", w, "H", h, "Sc", sc, "mode", mode, "room", roomhor, roomver)
 processreport()
 key = input("Wait")
