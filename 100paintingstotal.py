@@ -65,6 +65,7 @@ for i in range(maxpaintings):
         roomver = 841.89 - 2 * minmarginver
         schor = roomhor / w
         scver = roomver / h
+        sc = min(schor, scver)
     else:
         mode = "L"
         minmarginhor = 60
@@ -73,6 +74,7 @@ for i in range(maxpaintings):
         roomver = 595.27 - 2 * minmarginver
         schor = roomhor / w
         scver = roomver / h
-    print(i, paintingsdata[i][0], "W", w, "H", h, "Sc", round(schor * 10, 3), round(scver * 10, 3), "mode", mode)
+        sc = min(schor, scver)
+    print(i, paintingsdata[i][0], "W", w, "H", h, "Sc", round(sc * 10, 3), "mode", mode)
 processreport()
 key = input("Wait")
