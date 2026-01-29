@@ -54,9 +54,13 @@ for i in range(maxpaintings):
     I = Image(painting)
     w = I.drawWidth
     h = I.drawHeight
+    if h >= 0.75 * w:
+        mode = "P"
+    else:
+        mode = "L"
     sc = paintingsdata[i][2]
-    mh = w * float(paintingsdata[i][2]) * 0.5
-    mv = h * float(paintingsdata[i][2]) * 0.5
-    print(i, paintingsdata[i][0], "W", w, "H", h, "Sc", sc, "mh", mh, "mv", mv)
+    #mh = w * float(paintingsdata[i][2]) * 0.5
+    #mv = h * float(paintingsdata[i][2]) * 0.5
+    print(i, paintingsdata[i][0], "W", w, "H", h, "Sc", sc, "mode", mode)
 processreport()
 key = input("Wait")
