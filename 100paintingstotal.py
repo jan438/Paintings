@@ -64,6 +64,10 @@ for i in range(maxpaintings):
         roomver = 841.89 - 2 * minmarginver
         ratiohor = roomhor / w
         ratiover = roomver / h
+        if ratiohor > ratiover:
+            sc = roomhor / w
+        else:
+            sc = roomver / h
     else:
         mode = "L"
         minmarginhor = 60
@@ -72,7 +76,10 @@ for i in range(maxpaintings):
         roomver = 595.27 - 2 * minmarginver
         ratiohor = roomhor / w
         ratiover = roomver / h
-    sc = paintingsdata[i][2]
+        if ratiohor > ratiover:
+            sc = roomhor / w
+        else:
+            sc = roomver / h
     print(i, paintingsdata[i][0], "W", w, "H", h, "Sc", sc, "mode", mode, "room", roomhor, roomver, "ratio", ratiohor, ratiover)
 processreport()
 key = input("Wait")
