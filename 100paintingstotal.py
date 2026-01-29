@@ -54,6 +54,7 @@ for i in range(maxpaintings):
     I = Image(painting)
     w = I.drawWidth
     h = I.drawHeight
-    print("Painting",i, paintingsdata[i][0], "Width", w, "Height", h)
+    scaling = paintingsdata[i][2]
+    print(i, paintingsdata[i][0], "W", w, "H", h, "Sc", scaling)
 processreport()
 key = input("Wait")
