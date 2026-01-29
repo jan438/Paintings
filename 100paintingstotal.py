@@ -73,6 +73,6 @@ for i in range(maxpaintings):
         roomver = 595.27 - 2 * minmarginver
         schor = roomhor / w
         scver = roomver / h
-    print(i, paintingsdata[i][0], "W", w, "H", h, "Sc", round(schor), round(scver), "mode", mode)
+    print(i, paintingsdata[i][0], "W", w, "H", h, "Sc", round(schor, 3), round(scver, 3), "mode", mode)
 processreport()
 key = input("Wait")
