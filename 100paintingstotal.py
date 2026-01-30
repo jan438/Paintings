@@ -73,8 +73,8 @@ for i in range(maxpaintings):
         minmarginver = 60
         roomhor = 841.89 - 2 * minmarginhor
         roomver = 595.27 - infoyline - 2 * minmarginver
-        schor = roomhor / w
-        scver = roomver / h
+        schor = w / roomhor
+        scver = h / roomver
         sc = min(schor, scver)
     print(i, paintingsdata[i][0], "W", w, "H", h, "Room", round(roomhor, 3), round(roomver, 3), "Sc", round(schor, 3), round(scver, 3),"mode", mode)
 processreport()
