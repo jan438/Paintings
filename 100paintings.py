@@ -194,6 +194,7 @@ else:
     c.rect(0, 0, pagewidthlandscape, pageheightlandscape)
     x = centerlandscape[0] - w * 0.5 * sc
     y = centerlandscape[1] - h * 0.5 * sc
+    c.line(margin, 0, margin, 595.27)
     c.line(margin, 595.27 - margin, 841.89, 595.27 - margin)
 c.setTitle(paintingsdata[index][0])
 c.saveState()
