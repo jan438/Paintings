@@ -173,6 +173,7 @@ pageheightportrait = A4[1]
 pagewidthlandscape = A4[1]
 pageheightlandscape = A4[0]
 index = 0
+margin = 75
 strindex = "{:03d}".format(index)
 painting = "Paintings/" + paintingsdata[index][0] + ".jpg"
 I = Image(painting)
@@ -185,8 +186,8 @@ if h >= 0.75 * w:
     c.rect(0, 0, pagewidthportrait, pageheightportrait)
     x = centerportrait[0] - w * 0.5 * sc
     y = centerportrait[1] - h * 0.5 * sc
-    c.line(20, 0, 20, 841.890)
-    c.line(0, 841.89 - 20, 595.27, 841.89 - 20)
+    c.line(margin, 0, margin, 841.890)
+    c.line(0, 841.89 - margin, 595.27, 841.89 - margin)
 else:
     c = canvas.Canvas("PDF/100paintings" + strindex + ".pdf", (landscape(A4)))
     c.linearGradient(0, 0, pagewidthlandscape, pageheightlandscape, (HexColor("#3f5d82"), HexColor("#4f73a1")))
