@@ -172,7 +172,7 @@ pagewidthportrait = A4[0]
 pageheightportrait = A4[1] 
 pagewidthlandscape = A4[1]
 pageheightlandscape = A4[0]
-index = 0
+index = 11
 margin = 75
 strindex = "{:03d}".format(index)
 painting = "Paintings/" + paintingsdata[index][0] + ".jpg"
@@ -186,7 +186,7 @@ if h >= 0.75 * w:
     c.rect(0, 0, pagewidthportrait, pageheightportrait)
     x = centerportrait[0] - w * 0.5 * sc
     y = centerportrait[1] - h * 0.5 * sc
-    c.line(margin, 0, margin, 841.890)
+    c.line(margin, 0, margin, 841.89)
     c.line(0, 841.89 - margin, 595.27, 841.89 - margin)
 else:
     c = canvas.Canvas("PDF/100paintings" + strindex + ".pdf", (landscape(A4)))
@@ -194,6 +194,7 @@ else:
     c.rect(0, 0, pagewidthlandscape, pageheightlandscape)
     x = centerlandscape[0] - w * 0.5 * sc
     y = centerlandscape[1] - h * 0.5 * sc
+    c.line(margin, 595.27 - margin, 841.89, 595.27 - margin)
 c.setTitle(paintingsdata[index][0])
 c.saveState()
 c.translate(x, y)
