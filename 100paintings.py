@@ -172,7 +172,7 @@ pagewidthportrait = A4[0]
 pageheightportrait = A4[1] 
 pagewidthlandscape = A4[1]
 pageheightlandscape = A4[0]
-index = 0
+index = 11
 margin = 75
 strindex = "{:03d}".format(index)
 painting = "Paintings/" + paintingsdata[index][0] + ".jpg"
@@ -197,6 +197,7 @@ else:
     y = centerlandscape[1] - h * 0.5 * sc
     c.line(margin, 0, margin, 595.27)
     c.line(0, 595.27 - margin, 841.89, 595.27 - margin)
+    c.line(0, infoyline, 841.89, infoyline)
 c.setTitle(paintingsdata[index][0])
 c.saveState()
 c.translate(x, y)
