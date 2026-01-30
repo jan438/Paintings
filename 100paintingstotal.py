@@ -16,6 +16,7 @@ from reportlab.platypus import Image
 
 maxpaintings = 25
 paintingsdata = []
+infoyline = 150
 
 def processreport():
     merger = PdfWriter()
@@ -62,7 +63,7 @@ for i in range(maxpaintings):
         minmarginhor = 60
         minmarginver = 60
         roomhor = 595.27 - 2 * minmarginhor
-        roomver = 841.89 - 2 * minmarginver
+        roomver = 841.89 - infoyline - 2 * minmarginver
         schor = roomhor / w
         scver = roomver / h
         sc = min(schor, scver)
@@ -71,7 +72,7 @@ for i in range(maxpaintings):
         minmarginhor = 60
         minmarginver = 60
         roomhor = 841.89 - 2 * minmarginhor
-        roomver = 595.27 - 2 * minmarginver
+        roomver = 595.27 - infoyline - 2 * minmarginver
         schor = roomhor / w
         scver = roomver / h
         sc = min(schor, scver)
