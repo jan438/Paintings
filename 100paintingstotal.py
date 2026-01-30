@@ -76,6 +76,6 @@ for i in range(maxpaintings):
         schor = roomhor / w
         scver = roomver / h
         sc = min(schor, scver)
-    print(i, paintingsdata[i][0], "W", w, "H", h, "Room", round(roomhor, 3), round(roomver, 3), "Sc", round(schor * 10, 3), round(scver * 10, 3),"mode", mode)
+    print(i, paintingsdata[i][0], "W", w, "H", h, "Room", round(roomhor, 3), round(roomver, 3), "Sc", round(schor, 3), round(scver, 3),"mode", mode)
 processreport()
 key = input("Wait")
