@@ -186,6 +186,7 @@ if h >= 0.75 * w:
     x = centerportrait[0] - w * 0.5 * sc
     y = centerportrait[1] - h * 0.5 * sc
     c.line(20, 0, 20, 841.890)
+    c.line(0, 841.89 - 20, 595.27, 841.89 - 20)
 else:
     c = canvas.Canvas("PDF/100paintings" + strindex + ".pdf", (landscape(A4)))
     c.linearGradient(0, 0, pagewidthlandscape, pageheightlandscape, (HexColor("#3f5d82"), HexColor("#4f73a1")))
