@@ -24,6 +24,7 @@ centerlandscape = (420.945, 372.638)
 infoyline = 150
 #centeryportait 841.89 - 150 = 691.89 / 2 = 345.945 + 150 = 495.945
 #centerylandscape 595.27 - 150 = 445.27 / 2 = 222.635 + 150 = 372.638
+linesmode = False
 
 def scaleSVG(svgfile, scaling_factor):
     svg_root = load_svg_file(svgfile)
@@ -186,18 +187,20 @@ if h >= 0.75 * w:
     c.rect(0, 0, pagewidthportrait, pageheightportrait)
     x = centerportrait[0] - w * 0.5 * sc
     y = centerportrait[1] - h * 0.5 * sc
-    c.line(margin, 0, margin, 841.89)
-    c.line(0, 841.89 - margin, 595.27, 841.89 - margin)
-    c.line(0, infoyline, 595.27, infoyline)
+    if linesmode:
+        c.line(margin, 0, margin, 841.89)
+        c.line(0, 841.89 - margin, 595.27, 841.89 - margin)
+        c.line(0, infoyline, 595.27, infoyline)
 else:
     c = canvas.Canvas("PDF/100paintings" + strindex + ".pdf", (landscape(A4)))
     c.linearGradient(0, 0, pagewidthlandscape, pageheightlandscape, (HexColor("#3f5d82"), HexColor("#4f73a1")))
     c.rect(0, 0, pagewidthlandscape, pageheightlandscape)
     x = centerlandscape[0] - w * 0.5 * sc
     y = centerlandscape[1] - h * 0.5 * sc
-    c.line(margin, 0, margin, 595.27)
-    c.line(0, 595.27 - margin, 841.89, 595.27 - margin)
-    c.line(0, infoyline, 841.89, infoyline)
+    if linesmode:
+        c.line(margin, 0, margin, 595.27)
+        c.line(0, 595.27 - margin, 841.89, 595.27 - margin)
+        c.line(0, infoyline, 841.89, infoyline)
 c.setTitle(paintingsdata[index][0])
 c.saveState()
 c.translate(x, y)
