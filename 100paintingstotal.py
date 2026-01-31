@@ -14,7 +14,7 @@ from svglib.svglib import svg2rlg, load_svg_file, SvgRenderer
 from pypdf import PdfReader, PdfWriter
 from reportlab.platypus import Image
 
-maxpaintings = 28
+maxpaintings = 30
 paintingsdata = []
 infoyline = 150
 
