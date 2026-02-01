@@ -14,6 +14,7 @@ from svglib.svglib import svg2rlg, load_svg_file, SvgRenderer
 from pypdf import PdfReader, PdfWriter
 from reportlab.platypus import Image
 
+startindex = 0
 maxpaintings = 50
 paintingsdata = []
 infoyline = 150
@@ -50,7 +51,7 @@ with open(file_to_open, 'r') as file:
     for row in csvreader:
         paintingsdata.append(row)
         count += 1
-for i in range(maxpaintings):
+for i in range(startindex, maxpaintings):
     painting = "Paintings/" + paintingsdata[i][0] + ".jpg"
     I = Image(painting)
     w = I.drawWidth
