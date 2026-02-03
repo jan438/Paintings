@@ -15,7 +15,7 @@ from pypdf import PdfReader, PdfWriter
 from reportlab.platypus import Image
 
 startindex = 0
-maxpaintings = 60
+maxpaintings = 70
 paintingsdata = []
 infoyline = 150
 
@@ -77,6 +77,6 @@ for i in range(startindex, maxpaintings):
         schor = w / roomhor
         scver = h / roomver
         sc = min(schor, scver)
-    print(i, paintingsdata[i][0], "W", w, "H", h, "Room", round(roomhor, 3), round(roomver, 3), "Sc", round(schor, 3), round(scver, 3),"mode", mode)
+    print(i, paintingsdata[i][0], "W", w, "H", h, "Room", round(roomhor, 3), round(roomver, 3), "Sc", round(schor, 3), round(scver, 3),"mode", mode, "Surface", round((w * h) / 10000, 3))
 processreport()
 key = input("Wait")
