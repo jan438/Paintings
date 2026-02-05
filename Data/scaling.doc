@@ -12,7 +12,7 @@
 11 The Grand Odalisque W 1280 H 714 Room 721.89 325.27 Sc 1.773 2.195 mode L Surface 411.264
 12 The Swing W 960 H 1240 Room 475.27 571.89 Sc 0.495 0.461 mode P Surface 535.68
 13 The Liberty Leading The People W 960 H 768 Room 475.27 571.89 Sc 0.495 0.745 mode P Surface 331.776
-14 The Birth Of Venus W 960 H 603 Room 721.89 325.27 Sc 1.33 1.854 mode L Surface 295.229
+14 The Birth Of Venus W 1920 H 1206 Room 721.89 325.27 Sc 2.66 3.708 mode L Surface 648.346
 15 Napoleon Crossing The Alps W 1280 H 1559 Room 475.27 571.89 Sc 0.371 0.367 mode P Surface 698.432
 16 Musicians W 1280 H 974 Room 475.27 571.89 Sc 0.371 0.587 mode P Surface 486.221
 17 American Gothic W 1280 H 1545 Room 475.27 571.89 Sc 0.371 0.37 mode P Surface 652.608
@@ -68,3 +68,33 @@
 67 Saturn Devouring His Son W 960 H 1763 Room 475.27 571.89 Sc 0.495 0.324 mode P Surface 541.594
 68 Battle Of Issus W 960 H 1254 Room 475.27 571.89 Sc 0.495 0.456 mode P Surface 481.536
 69 The Potato Eaters W 1920 H 1364 Room 721.89 325.27 Sc 2.66 4.193 mode L Surface 680.909
+70 The Birth of Venus W 1920 H 1090 Room 721.89 325.27 Sc 2.66 3.351 mode L Surface 669.696
+71 Mars And Venus Allegory Of Peace W 960 H 1161 Room 475.27 571.89 Sc 0.495 0.493 mode P Surface 456.97
+72 Red Balloon W 1280 H 1298 Room 475.27 571.89 Sc 0.371 0.441 mode P Surface 581.504
+73 The Lady Of Shalott W 1920 H 1474 Room 475.27 571.89 Sc 0.248 0.388 mode P Surface 764.122
+74 Portrait Of A Gentleman Skating W 960 H 1607 Room 475.27 571.89 Sc 0.495 0.356 mode P Surface 539.952
+75 The Hay Wain W 1920 H 1324 Room 721.89 325.27 Sc 2.66 4.07 mode L Surface 686.362
+76 The Boat Trip W 1920 H 1472 Room 475.27 571.89 Sc 0.248 0.389 mode P Surface 706.56
+77 Sleeping Venus W 1920 H 1183 Room 721.89 325.27 Sc 2.66 3.637 mode L Surface 681.408
+78 Adoration Of The Magi W 1280 H 1399 Room 475.27 571.89 Sc 0.371 0.409 mode P Surface 590.938
+79 Portrait Of A Young Man W 932 H 1200 Room 475.27 571.89 Sc 0.51 0.477 mode P Surface 424.992
+80 Boulevard Montmartre Spring W 1920 H 1532 Room 475.27 571.89 Sc 0.248 0.373 mode P Surface 735.36
+81 The Wedding At Cana W 1920 H 1304 Room 721.89 325.27 Sc 2.66 4.009 mode L Surface 701.03
+82 The Anatomy Lesson Of Dr. Nicolaes Tulp W 1920 H 1446 Room 475.27 571.89 Sc 0.248 0.395 mode P Surface 721.843
+83 The Raft Of The Medusa W 1920 H 1311 Room 721.89 325.27 Sc 2.66 4.03 mode L Surface 679.622
+84 The kiss W 960 H 1196 Room 475.27 571.89 Sc 0.495 0.478 mode P Surface 459.264
+85 The Bath W 1920 H 2357 Room 475.27 571.89 Sc 0.248 0.243 mode P Surface 905.088
+86 Fort Vimieux W 1105 H 757 Room 721.89 325.27 Sc 1.531 2.327 mode L Surface 334.594
+87 The Japanese Bridge W 1920 H 1538 Room 475.27 571.89 Sc 0.248 0.372 mode P Surface 767.77
+88 Washington Crossing The Delaware W 1920 H 1101 Room 721.89 325.27 Sc 2.66 3.385 mode L Surface 676.454
+89 The Garden Of Earthly Delights W 1920 H 1093 Room 721.89 325.27 Sc 2.66 3.36 mode L Surface 629.568
+90 Supper At Emmaus W 1920 H 1365 Room 721.89 325.27 Sc 2.66 4.197 mode L Surface 733.824
+91 Feast Of The Rosary W 1280 H 1083 Room 475.27 571.89 Sc 0.371 0.528 mode P Surface 485.184
+92 The Hireling Shepherd W 1200 H 837 Room 721.89 325.27 Sc 1.662 2.573 mode L Surface 371.628
+93 Hunters In The Snow W 1920 H 1366 Room 721.89 325.27 Sc 2.66 4.2 mode L Surface 681.907
+94 The Seed Of Areoi W 960 H 1239 Room 475.27 571.89 Sc 0.495 0.462 mode P Surface 463.882
+95 Barge Haulers On The Volga W 1920 H 888 Room 721.89 325.27 Sc 2.66 2.73 mode L Surface 596.736
+96 Odalisque W 1280 H 1038 Room 475.27 571.89 Sc 0.371 0.551 mode P Surface 491.597
+97 Cardsharps W 1920 H 1382 Room 721.89 325.27 Sc 2.66 4.249 mode L Surface 663.36
+98 The Pont Du Gard W 960 H 950 Room 475.27 571.89 Sc 0.495 0.602 mode P Surface 373.92
+99 The Luncheon On The Grass W 1920 H 1492 Room 475.27 571.89 Sc 0.248 0.383 mode P Surface 744.806

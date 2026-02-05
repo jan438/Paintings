@@ -15,7 +15,7 @@ from pypdf import PdfReader, PdfWriter
 from reportlab.platypus import Image
 
 startindex = 0
-maxpaintings = 80
+maxpaintings = 100
 paintingsdata = []
 infoyline = 150
 
