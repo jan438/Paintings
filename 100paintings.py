@@ -74,9 +74,10 @@ def rgb_to_hex(r, g, b):
     # Format as HEX string  
     return "#{:02X}{:02X}{:02X}".format(r, g, b)
 
-def draw_frame(c, mode, x, y, w, h,  color1, color2):
+def draw_frame(c, mode, x, y, w, h,  color1, color2, crop):
     if mode == "0":
         return
+    print("Crop", crop)
     color1hex = HexColor(color1)
     color2hex = HexColor(color2)
     color2rgb = hex_to_rgb(color2)
@@ -207,7 +208,7 @@ c.translate(x, y)
 c.scale(sc, sc)
 c.drawImage(painting, 0, 0, width = w, height = h, mask='auto')
 c.restoreState()
-draw_frame(c, paintingsdata[index][3], x, y, w * sc, h * sc, paintingsdata[index][4], paintingsdata[index][5])
+draw_frame(c, paintingsdata[index][3], x, y, w * sc, h * sc, paintingsdata[index][4], paintingsdata[index][5], paintingsdata[index][6])
 c.setFillColor(HexColor('#FFFFFF'))
 c.setFont(paintingfont, 25)
 namewidth = pdfmetrics.stringWidth(paintingsdata[index][0], paintingfont, 25)
