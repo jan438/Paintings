@@ -77,7 +77,13 @@ def rgb_to_hex(r, g, b):
 def draw_frame(c, mode, x, y, w, h,  color1, color2, crop):
     if mode == "0":
         return
-    print("Crop", crop)
+    if crop < 0:
+        crop = -crop
+        x = x + crop
+        y = y + crop
+        w = w - 2 * crop
+        h = h - 2 * crop
+        print("Crop", crop)
     color1hex = HexColor(color1)
     color2hex = HexColor(color2)
     color2rgb = hex_to_rgb(color2)
