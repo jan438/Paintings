@@ -174,7 +174,7 @@ pagewidthportrait = A4[0]
 pageheightportrait = A4[1] 
 pagewidthlandscape = A4[1]
 pageheightlandscape = A4[0]
-index = 65
+index = 31
 margin = 75
 strindex = "{:03d}".format(index)
 painting = "Paintings/" + paintingsdata[index][0] + ".jpg"
@@ -208,7 +208,7 @@ c.translate(x, y)
 c.scale(sc, sc)
 c.drawImage(painting, 0, 0, width = w, height = h, mask='auto')
 c.restoreState()
-draw_frame(c, paintingsdata[index][3], x, y, w * sc, h * sc, paintingsdata[index][4], paintingsdata[index][5], paintingsdata[index][6])
+draw_frame(c, paintingsdata[index][3], x, y, w * sc, h * sc, paintingsdata[index][4], paintingsdata[index][5], float(paintingsdata[index][6]))
 c.setFillColor(HexColor('#FFFFFF'))
 c.setFont(paintingfont, 25)
 namewidth = pdfmetrics.stringWidth(paintingsdata[index][0], paintingfont, 25)
