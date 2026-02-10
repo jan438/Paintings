@@ -52,7 +52,8 @@ with open(file_to_open, 'r') as file:
         paintingsdata.append(row)
         count += 1
 for i in range(startindex, maxpaintings):
-    painting = "Paintings/" + paintingsdata[i][0] + ".jpg"
+    paintingname = paintingsdata[i][0]
+    painting = "Paintings/" + paintingname + ".jpg"
     I = Image(painting)
     w = I.drawWidth
     h = I.drawHeight
