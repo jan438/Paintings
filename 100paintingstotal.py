@@ -53,9 +53,6 @@ with open(file_to_open, 'r') as file:
         count += 1
 for i in range(startindex, maxpaintings):
     paintingname = paintingsdata[i][0]
-    for j in range(len(paintingname)):
-        if paintingname[j] == " " and (paintingname[j + 1] >= "a" and paintingname[j + 1] <= "z"):
-            print(i, paintingname)
     painting = "Paintings/" + paintingname + ".jpg"
     I = Image(painting)
     w = I.drawWidth
