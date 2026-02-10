@@ -219,7 +219,7 @@ c.setFont(paintingfont, 25)
 paintingname = paintingsdata[index][0]
 for j in range(len(paintingname)):
     if paintingname[j] == " " and (paintingname[j + 1] >= "a" and paintingname[j + 1] <= "z"):
-        res = paintingname[:j + 1] + paintingname[j + 2:]
+        res = paintingname[:j + 1] + paintingname[j + 1:j + 2].upper() + paintingname[j + 2:]
         print(res)
 namewidth = pdfmetrics.stringWidth(paintingname, paintingfont, 25)
 c.drawString(x + 0.5 * (w * sc - namewidth), y - 35.0, paintingname)
