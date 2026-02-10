@@ -217,6 +217,9 @@ draw_frame(c, paintingsdata[index][3], x, y, w * sc, h * sc, paintingsdata[index
 c.setFillColor(HexColor('#FFFFFF'))
 c.setFont(paintingfont, 25)
 paintingname = paintingsdata[index][0]
+for j in range(len(paintingname)):
+    if paintingname[j] == " " and (paintingname[j + 1] >= "a" and paintingname[j + 1] <= "z"):
+        print(paintingname)
 namewidth = pdfmetrics.stringWidth(paintingname, paintingfont, 25)
 c.drawString(x + 0.5 * (w * sc - namewidth), y - 35.0, paintingname)
 painter = "Painters/" + paintingsdata[index][1] + ".jpg"
